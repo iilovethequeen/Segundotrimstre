@@ -1,0 +1,57 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Ejercicio 4 */
+.flex-container {
+    display: flex;
+
+}
+
+.flex-1 {
+    flex: 1 1 auto;
+    background-color: lightcoral;
+    padding: 20px;
+    border: 2px solid #333;
+
+}
+
+.flex-2 {
+    flex: 2 1 150px;
+    background-color: rgb(143, 105, 105);
+    padding: 20px;
+    border: 2px solid #333;
+
+
+}
+
+.flex-3 {
+    flex: 1 0 100px;
+    background-color: rgb(29, 49, 21);
+    padding: 20px;
+    border: 2px solid #333;
+
+}
+
+.flex-4 {
+    flex: 0 1 200px;
+    background-color: rgb(238, 240, 128);
+    padding: 20px;
+    border: 2px solid #333;
+
+
+}

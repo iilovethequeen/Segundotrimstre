@@ -1,0 +1,97 @@
+/* Estilo general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "DM sans ";
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+
+#logo {
+    width: 150px;
+    /* adjust as needed */
+    height: auto;
+    /* maintain aspect ratio */
+    display: block;
+    /* ensures proper spacing */
+}
+
+
+    
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Ejercicio 1 */
+.caja {
+    width: 250px;
+    height: 150px;
+    padding: 15px;
+    border: 2px solid red;
+    margin: 20px;
+}
+
+/* Ejercicio 2 */
+.caja-1 {
+    background-color: lightblue;
+    padding: 30px;
+}
+
+.caja-2 {
+    background-color: lightgreen;
+    margin: 30px;
+}
+
+/* Ejercicio 3 */
+.borde-personalizado {
+    border-top: 10px solid blue;
+    border-right: 5px dashed red;
+    border-bottom: 8px dotted green;
+    border-left: 3px double black;
+    padding: 20px;
+
+}
+
+/* Ejercicio 4 */
+.caja-em-rem {
+    font-size: 20px;
+    padding: 2em;
+    border: 2px solid #333;
+}
+
+.caja-em-rem h1 {
+    font-size: 2rem;
+}
+
+.caja-em-rem p {
+    font-size: 1.5em;
+}
+
+/* Ejercicio 5 */
+.caja-fluid {
+    width: 50vw;
+    height: 30vh;
+    background-color: coral;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja-fluid:hover {
+    background-color: rgb(77, 90, 211);
+    transition: 0.5s;
+}

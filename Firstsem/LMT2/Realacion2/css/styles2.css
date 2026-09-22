@@ -1,0 +1,46 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Ejercicio 2 */
+
+.flex-container {
+    display: flex ;
+}
+
+.flex-direction{
+    flex-direction: column;
+    
+}
+
+.red{
+    background-color: lightcoral;
+    padding: 20px;
+    border: 2px solid #333;
+}
+
+.green{
+    background-color: lightgreen;
+    padding: 20px;
+    border: 2px solid #333;
+}
+
+.blue{
+    background-color: lightblue;
+    padding: 20px;
+    border: 2px solid #333;
+}

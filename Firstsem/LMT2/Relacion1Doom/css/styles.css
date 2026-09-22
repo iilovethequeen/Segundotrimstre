@@ -1,0 +1,7 @@
+/*Al cargar la página, cambia el color d fondo de todos los animales a un color suave (por ejemplo, lightyellow).*/
+
+.animal {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+}

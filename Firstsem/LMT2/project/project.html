@@ -1,0 +1,512 @@
+1. Filter cards by something
+ Filter by species/status
+Add this to your index.html inside <section class="page-hero">:
+html<select id="filtro-especie" onchange="filtrarPersonajes(this.value)">
+    <option value="todos">Todos</option>
+    <option value="Human">Humano</option>
+</select>
+
+"I want to filter characters by species or status"
+
+javascriptfunction filtrarPersonajes(criterio) {
+    document.querySelectorAll(".card").forEach(card => {
+        const id = card.dataset.id;
+        const datos = personajes[id];
+        if (datos.especie === criterio || criterio === "todos") {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+2. Sort the cards
+ Sort alphabetically
+Add a button in index.html:
+html<button class="btn" onclick="ordenarTarjetas()">Ordenar A-Z</button>
+"I want to sort characters alphabetically"
+
+javascriptfunction ordenarTarjetas() {
+    const grid = document.querySelector(".grid");
+    const cards = [...grid.querySelectorAll(".card")];
+    cards.sort((a, b) => {
+        const nameA = a.querySelector(".card__title").textContent;
+        const nameB = b.querySelector(".card__title").textContent;
+        return nameA.localeCompare(nameB);
+    });
+    cards.forEach(card => grid.appendChild(card));
+}
+
+3. A favorites list/section
+3. Search on home page
+Add this to index.html:
+html<input type="text" id="filtro-home" placeholder="Buscar personaje..." oninput="filtrarPorNombre()">
+"I want to see all my favorites together in one place"
+
+javascriptfunction mostrarFavoritos() {
+    const favs = document.querySelectorAll(".card--favorita");
+    if (favs.length === 0) {
+        alert("No tienes favoritos aún");
+        return;
+    }
+    const nombres = [...favs].map(c => c.querySelector(".card__title").textContent);
+    alert("Tus favoritos: " + nombres.join(", "));
+}
+
+4. A search/filter on the main page
+4. Visit counter
+In cargarPersonaje() in script.js, just add one line at the end:
+javascriptfunction cargarPersonaje() {
+    // ... your existing code ...
+    
+    registrarVisita(id); // add this at the bottom
+}
+"I want to search characters directly on the home page"
+
+javascriptfunction filtrarPorNombre() {
+    const texto = document.getElementById("filtro-home").value.toLowerCase();
+    document.querySelectorAll(".card").forEach(card => {
+        const nombre = card.querySelector(".card__title").textContent.toLowerCase();
+        card.style.display = nombre.includes(texto) ? "block" : "none";
+    });
+}
+
+5. A visit counter per character
+
+"I want to track how many times each character page was visited"
+
+javascriptfunction registrarVisita(id) {
+    const visitas = JSON.parse(localStorage.getItem("visitas") || "{}");
+    visitas[id] = (visitas[id] || 0) + 1;
+    localStorage.setItem("visitas", JSON.stringify(visitas));
+    console.log(`${id} visitado ${visitas[id]} veces`);
+}
+
+
+Quick CSS you might need
+The filter/search inputs will look unstyled, just add this to your styles.css:
+css#filtro-home, #filtro-especie {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+
+🎯 High probability asks
+1. Limit how many favorites you can add
+
+"I only want the user to be able to save maximum 3 favorites"
+
+javascriptfunction toggleFavorito(boton) {
+    const tarjeta = boton.closest(".card");
+    const esFavorita = tarjeta.classList.contains("card--favorita");
+    
+    if (!esFavorita) {
+        const totalActual = document.querySelectorAll(".card--favorita").length;
+        if (totalActual >= 3) {
+            alert("You can only have 3 favorites!");
+            return;
+        }
+    }
+    // ... rest of your existing code
+}
+
+2. Confirm before removing a favorite
+
+"I want a confirmation before unfavoriting a character"
+
+javascriptif (esFavorita) {
+    const confirmar = confirm("Remove from favorites?");
+    if (!confirmar) return;
+    // ... rest of remove code
+}
+
+3. Show how many results the API found
+
+"After searching I want to see how many characters match"
+
+javascript// inside buscarPersonaje() after getting data:
+const total = data.info.count;
+document.getElementById("resultado-busqueda").innerHTML += 
+    `<p>Found ${total} characters</p>`;
+
+4. Loading message while API fetches
+
+"Show something while the data is loading"
+
+javascriptasync function buscarPersonaje() {
+    document.getElementById("resultado-busqueda").innerHTML = "Loading...";
+    // ... rest of your existing code
+}
+
+5. Save last search in localStorage
+
+"I want the search bar to remember the last thing I searched"
+
+javascript// Save it:
+localStorage.setItem("ultimaBusqueda", input);
+
+// Load it when page opens:
+window.onload = () => {
+    const ultima = localStorage.getItem("ultimaBusqueda");
+    if (ultima) document.getElementById("busqueda-personaje").value = ultima;
+}
+
+6. Show multiple random characters at once
+
+"Show me 3 random characters at the same time"
+
+javascriptasync function mostrarVariosAleatorios() {
+    const ids = [];
+    while (ids.length < 3) {
+        const id = Math.floor(Math.random() * 826) + 1;
+        if (!ids.includes(id)) ids.push(id);
+    }
+    
+    const promesas = ids.map(id => fetch(`${API_BASE}/${id}`).then(r => r.json()));
+    const personajes = await Promise.all(promesas);
+    
+    document.getElementById("resultado-aleatorio").innerHTML = 
+        personajes.map(p => `<div class="api-card">
+            <img src="${p.image}" alt="${p.name}"/>
+            <h3>${p.name}</h3>
+        </div>`).join("");
+}
+
+
+
+
+
+🔴 Very likely (simple logic adds)
+1. Disable the search button if input is empty
+javascriptdocument.getElementById("busqueda-personaje")?.addEventListener("input", function() {
+    const btn = document.getElementById("btn-buscar");
+    btn.disabled = this.value.trim() === "";
+});
+2. Clear the search results with a button
+javascriptfunction limpiarBusqueda() {
+    document.getElementById("resultado-busqueda").innerHTML = "";
+    document.getElementById("busqueda-personaje").value = "";
+    document.getElementById("error-busqueda").textContent = "";
+}
+Add in HTML:
+html<button onclick="limpiarBusqueda()">Clear</button>
+3. Max 3 favorites
+javascriptfunction toggleFavorito(boton) {
+    const tarjeta = boton.closest(".card");
+    const esFavorita = tarjeta.classList.contains("card--favorita");
+
+    if (!esFavorita) {
+        const totalActual = document.querySelectorAll(".card--favorita").length;
+        if (totalActual >= 3) {
+            alert("Maximum 3 favorites allowed!");
+            return;
+        }
+    }
+
+    if (esFavorita) {
+        tarjeta.classList.remove("card--favorita");
+        boton.textContent = " Añadir a favoritos";
+        boton.classList.remove("btn--guardado");
+    } else {
+        tarjeta.classList.add("card--favorita");
+        boton.textContent = " Guardado";
+        boton.classList.add("btn--guardado");
+    }
+
+    actualizarContador();
+}
+
+🟠 Medium likely (slightly more complex)
+4. Show character status with a colored dot
+javascriptfunction getColorEstado(estado) {
+    if (estado === "Alive") return "green";
+    if (estado === "Dead") return "red";
+    return "gray";
+}
+
+// inside renderizarPersonaje() add this to the html:
+// <span style="color:${getColorEstado(personaje.status)}">● </span>${personaje.status}
+5. Search history — show last 3 searches
+javascriptfunction guardarHistorial(input) {
+    let historial = JSON.parse(localStorage.getItem("historial") || "[]");
+    if (!historial.includes(input)) {
+        historial.unshift(input);
+        historial = historial.slice(0, 3); // keep only last 3
+    }
+    localStorage.setItem("historial", JSON.stringify(historial));
+    mostrarHistorial();
+}
+
+function mostrarHistorial() {
+    const historial = JSON.parse(localStorage.getItem("historial") || "[]");
+    const lista = historial.map(h => `<span onclick="buscarEste('${h}')">${h}</span>`).join(" | ");
+    document.getElementById("historial").innerHTML = "Recent: " + lista;
+}
+
+function buscarEste(texto) {
+    document.getElementById("busqueda-personaje").value = texto;
+    buscarPersonaje();
+}
+Add in HTML:
+html<div id="historial"></div>
+6. Compare two random characters side by side
+javascriptasync function compararAleatorios() {
+    const id1 = Math.floor(Math.random() * 826) + 1;
+    const id2 = Math.floor(Math.random() * 826) + 1;
+
+    const [p1, p2] = await Promise.all([
+        fetch(`${API_BASE}/${id1}`).then(r => r.json()),
+        fetch(`${API_BASE}/${id2}`).then(r => r.json())
+    ]);
+
+    document.getElementById("resultado-aleatorio").innerHTML = `
+        <div style="display:flex; gap:20px;">
+            <div class="api-card">
+                <img src="${p1.image}" alt="${p1.name}"/>
+                <h3>${p1.name}</h3>
+                <p>${p1.species} — ${p1.status}</p>
+            </div>
+            <div class="api-card">
+                <img src="${p2.image}" alt="${p2.name}"/>
+                <h3>${p2.name}</h3>
+                <p>${p2.species} — ${p2.status}</p>
+            </div>
+        </div>`;
+}
+
+🟡 Less likely but possible
+7. Count how many times you clicked random
+javascriptlet contadorAleatorio = 0;
+
+async function mostrarAleatorio() {
+    contadorAleatorio++;
+    document.getElementById("contador-clicks").textContent = 
+        `Random clicked ${contadorAleatorio} times`;
+    // ... rest of your existing code
+}
+Add in HTML:
+html<p id="contador-clicks"></p>
+8. Sort search results A-Z or Z-A
+javascriptasync function buscarPersonaje(orden = "asc") {
+    const input = document.getElementById("busqueda-personaje").value.trim();
+    const res = await fetch(`${API_BASE}/?name=${encodeURIComponent(input)}`);
+    const data = await res.json();
+    
+    let resultados = data.results;
+    if (orden === "asc") resultados.sort((a, b) => a.name.localeCompare(b.name));
+    if (orden === "desc") resultados.sort((a, b) => b.name.localeCompare(a.name));
+
+    document.getElementById("resultado-busqueda").innerHTML = 
+        resultados.map(p => `
+            <div class="api-card">
+                <img src="${p.image}" alt="${p.name}"/>
+                <h3>${p.name}</h3>
+            </div>`).join("");
+}
+
+
+
+Almost certain asks (from R1/R2 — dataset + DOM)
+1. Filter characters by species (exactly like filter by position in R1 and filter by section in R2)
+
+"I want to filter characters by species"
+
+javascriptdocument.getElementById("filtroPosicion")?.addEventListener("change", function() {
+    const valor = this.value;
+    document.querySelectorAll(".card").forEach(card => {
+        if (valor === "todas" || card.dataset.especie === valor) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});
+Add data-especie to your cards in HTML:
+html<article class="card" data-id="rick" data-especie="Human">
+Add select in HTML:
+html<select id="filtroPosicion">
+    <option value="todas">Todas</option>
+    <option value="Human">Humano</option>
+    <option value="Alien">Alien</option>
+</select>
+
+2. Click on card to show details panel (exactly like R1 exercise 2 and R2 exercise 1)
+
+"When I click a card I want to see its details somewhere on the page"
+
+javascriptdocument.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", function() {
+        // remove selected from all
+        document.querySelectorAll(".card").forEach(c => c.classList.remove("seleccionado"));
+        // add to clicked
+        this.classList.add("seleccionado");
+
+        // show details
+        const id = this.dataset.id;
+        const datos = personajes[id];
+        document.getElementById("panel-nombre").textContent = datos.nombre;
+        document.getElementById("panel-especie").textContent = datos.especie;
+        document.getElementById("panel-estado").textContent = datos.estado;
+    });
+});
+Add panel in HTML:
+html<div id="panelDetalles">
+    <p id="panel-nombre"></p>
+    <p id="panel-especie"></p>
+    <p id="panel-estado"></p>
+</div>
+
+3. Delete selected character (exactly like R1 exercise 6)
+
+"I want a button to remove a character from the page"
+
+javascriptdocument.getElementById("btnBorrar")?.addEventListener("click", function() {
+    const seleccionada = document.querySelector(".card.seleccionado");
+    if (!seleccionada) {
+        alert("Select a character first!");
+        return;
+    }
+    const confirmar = confirm("Are you sure you want to delete this character?");
+    if (!confirmar) return;
+    seleccionada.remove();
+    actualizarContador();
+});
+Add button in HTML:
+html<button id="btnBorrar" class="btn">Delete selected</button>
+
+4. Add character with a form (exactly like R1 exercise 5 and R2 exercise 5)
+
+"I want to add a new character card from a form"
+
+javascriptdocument.getElementById("formNuevoPersonaje")?.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const nombre = document.getElementById("input-nombre").value.trim();
+    const especie = document.getElementById("input-especie").value.trim();
+
+    if (!nombre || !especie) {
+        alert("Fill in all fields!");
+        return;
+    }
+
+    const nuevaTarjeta = document.createElement("article");
+    nuevaTarjeta.classList.add("card");
+    nuevaTarjeta.dataset.id = nombre.toLowerCase();
+    nuevaTarjeta.dataset.especie = especie;
+
+    nuevaTarjeta.innerHTML = `
+        <div class="card__body">
+            <h2 class="card__title">${nombre}</h2>
+            <p class="card__meta">Especie: ${especie}</p>
+            <button class="btn btn--fav" onclick="toggleFavorito(this)">Añadir a favoritos</button>
+        </div>`;
+
+    document.querySelector(".grid").appendChild(nuevaTarjeta);
+    this.reset();
+});
+Add form in HTML:
+html<form id="formNuevoPersonaje">
+    <input type="text" id="input-nombre" placeholder="Nombre" />
+    <input type="text" id="input-especie" placeholder="Especie" />
+    <button type="submit" class="btn">Add character</button>
+</form>
+
+🟠 From the API practice (fetch)
+5. Show more info from API search (exactly like REST Countries exercise 1)
+
+"Show more fields when searching a character"
+
+javascript// inside renderizarPersonaje() add more fields:
+document.getElementById(zonaId).innerHTML = `
+    <div class="api-card">
+        <img src="${personaje.image}" alt="${personaje.name}" />
+        <div>
+            <h3>${personaje.name}</h3>
+            <p><strong>Especie:</strong> ${personaje.species}</p>
+            <p><strong>Estado:</strong> ${personaje.status}</p>
+            <p><strong>Origen:</strong> ${personaje.origin.name}</p>
+            <p><strong>Género:</strong> ${personaje.gender}</p>
+            <p><strong>Episodios:</strong> ${personaje.episode.length}</p>
+        </div>
+    </div>`;
+6. Better error handling (exactly like REST Countries exercise 6)
+
+"Show a proper error message for each case"
+
+javascriptasync function buscarPersonaje() {
+    const input = document.getElementById("busqueda-personaje").value.trim();
+    
+    if (!input) {
+        document.getElementById("error-busqueda").textContent = "⚠️ Write a name or id first";
+        return;
+    }
+
+    document.getElementById("resultado-busqueda").innerHTML = "⏳ Loading...";
+    document.getElementById("error-busqueda").textContent = "";
+
+    try {
+        // ... your existing fetch code
+    } catch {
+        document.getElementById("resultado-busqueda").innerHTML = "";
+        document.getElementById("error-busqueda").textContent = "❌ Character not found";
+    }
+}
+
+🎯 Contador related asks
+1. Change what the counter shows
+
+"Instead of just a number, show it differently"
+
+javascriptfunction actualizarContador() {
+    const contadorEl = document.getElementById("contador-favoritos");
+    if (!contadorEl) return;
+
+    const total = document.querySelectorAll(".card--favorita").length;
+    
+    // instead of just a number, more descriptive
+    if (total === 0) {
+        contadorEl.textContent = "No tienes favoritos aún";
+    } else if (total === 1) {
+        contadorEl.textContent = "Tienes 1 personaje favorito";
+    } else {
+        contadorEl.textContent = `Tienes ${total} personajes favoritos`;
+    }
+}
+
+2. Change counter color depending on number
+
+"Make the counter change color when you add favorites"
+
+javascriptfunction actualizarContador() {
+    const contadorEl = document.getElementById("contador-favoritos");
+    if (!contadorEl) return;
+
+    const total = document.querySelectorAll(".card--favorita").length;
+    contadorEl.textContent = "Personajes destacados: " + total;
+
+    // change color based on total
+    if (total === 0) contadorEl.style.color = "gray";
+    if (total === 1) contadorEl.style.color = "orange";
+    if (total >= 2) contadorEl.style.color = "green";
+}
+
+3. Counter with max limit warning
+
+"Show a warning in the counter when you reach the max"
+
+javascriptfunction actualizarContador() {
+    const contadorEl = document.getElementById("contador-favoritos");
+    if (!contadorEl) return;
+
+    const total = document.querySelectorAll(".card--favorita").length;
+    
+    if (total >= 3) {
+        contadorEl.textContent = `⚠️ Máximo alcanzado: ${total}/3 favoritos`;
+        contadorEl.style.color = "red";
+    } else {
+        contadorEl.textContent = `Personajes destacados: ${total}/3`;
+        contadorEl.style.color = "green";
+    }
+}

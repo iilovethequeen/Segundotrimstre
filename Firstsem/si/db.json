@@ -1,0 +1,58 @@
+{
+  "personas": [
+    {
+      "id": "1",
+      "nombre": "Carlos García",
+      "edad": 25,
+      "coches": [
+        {
+          "marca": "Toyota",
+          "modelo": "Corolla",
+          "año": 2018
+        },
+        {
+          "marca": "Ford",
+          "modelo": "Focus",
+          "año": 2020
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "nombre": "Laura Martínez",
+      "edad": 35,
+      "coches": [
+        {
+          "marca": "BMW",
+          "modelo": "Serie 3",
+          "año": 2021
+        }
+      ]
+    },
+    {
+      "id": "4uK2HsCH98M",
+      "nombre": "Pedro Lopez",
+      "edad": 40,
+      "coches": [
+        {
+          "marca": "Seat",
+          "modelo": "Ibiza",
+          "ano": 2019
+        }
+      ]
+    },
+    {
+      "id": "q0_3HjlWyHg",
+      "nombre": "PLopez",
+      "edad": 40,
+      "coches": [
+        {
+          "marca": "Seat",
+          "modelo": "Ibiza",
+          "ano": 2019
+        }
+      ]
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

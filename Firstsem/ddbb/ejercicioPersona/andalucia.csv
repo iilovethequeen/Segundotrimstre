@@ -1,0 +1,301 @@
+id,nombre,apellido,sexo,fecha_nacimiento,provincia,municipio,nivel_estudios,situacion_laboral,ingresos_anuales,estado_civil,nivel_socioeconomico,ocupacion,madre,padre
+1000,Antonio,Muñoz,H,1960-03-15,Sevilla,Sevilla,Secundarios,Jubilado,12000,Casado,Bajo,Jubilado,NULL,NULL
+1001,María,López,M,1962-07-22,Sevilla,Sevilla,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1002,Carlos,Gómez,H,1958-11-08,Málaga,Málaga,Secundarios,Jubilado,11500,Casado,Bajo,Jubilado,NULL,NULL
+1003,Isabel,Rodríguez,M,1960-09-14,Málaga,Málaga,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1004,Juan,López,H,1955-05-20,Córdoba,Córdoba,Primarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1005,Rosa,García,M,1958-02-28,Córdoba,Córdoba,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1006,Francisco,Sánchez,H,1952-12-11,Granada,Granada,Secundarios,Jubilado,13000,Casado,Bajo,Jubilado,NULL,NULL
+1007,Juana,Pérez,M,1956-08-16,Granada,Granada,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1008,Manuel,Rodríguez,H,1950-06-07,Jaén,Linares,Primarios,Jubilado,9500,Casado,Bajo,Jubilado,NULL,NULL
+1009,Elena,Hernández,M,1954-01-23,Jaén,Linares,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1010,Miguel,Gómez,H,1948-04-19,Cádiz,Jerez,Secundarios,Jubilado,11000,Casado,Bajo,Jubilado,NULL,NULL
+1011,Carmen,Fernández,M,1952-09-05,Cádiz,Jerez,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1012,Rafael,Torres,H,1956-07-30,Huelva,Huelva,Secundarios,Jubilado,10500,Casado,Bajo,Jubilado,NULL,NULL
+1013,Magdalena,Vega,M,1960-03-12,Huelva,Huelva,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1014,Javier,Domínguez,H,1954-11-25,Almería,Roquetas,Secundarios,Jubilado,12500,Casado,Bajo,Jubilado,NULL,NULL
+1015,Lucía,Ruiz,M,1958-05-08,Almería,Roquetas,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1016,Vicente,Moreno,H,1950-02-14,Sevilla,Dos Hermanas,Primarios,Jubilado,9000,Casado,Bajo,Jubilado,NULL,NULL
+1017,Patricia,Romero,M,1954-08-22,Sevilla,Dos Hermanas,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1018,Alfonso,Navarro,H,1948-12-03,Málaga,Marbella,Secundarios,Jubilado,14000,Casado,Medio,Jubilado,NULL,NULL
+1019,Rocío,García,M,1952-06-19,Málaga,Marbella,Secundarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1020,Emilio,Álvarez,H,1956-09-27,Cádiz,Cádiz,Secundarios,Jubilado,11500,Casado,Bajo,Jubilado,NULL,NULL
+1021,Dolores,Castillo,M,1960-03-11,Cádiz,Cádiz,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1022,Andrés,Vidal,H,1952-07-14,Granada,Motril,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1023,Josefa,Salazar,M,1956-04-20,Granada,Motril,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1024,Luis,Jiménez,H,1948-10-02,Jaén,Úbeda,Primarios,Jubilado,9000,Casado,Bajo,Jubilado,NULL,NULL
+1025,Gloria,Medina,M,1952-11-09,Jaén,Úbeda,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1026,Guillermo,Blanco,H,1954-05-17,Córdoba,Lucena,Secundarios,Jubilado,10500,Casado,Bajo,Jubilado,NULL,NULL
+1027,Elena,Flores,M,1958-02-25,Córdoba,Lucena,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1028,Robert,Fuentes,H,1950-08-31,Sevilla,Alcalá,Secundarios,Jubilado,11000,Casado,Medio,Jubilado,NULL,NULL
+1029,Paula,Campos,M,1954-12-07,Sevilla,Alcalá,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1030,Enrique,Marín,H,1948-01-19,Málaga,Fuengirola,Secundarios,Jubilado,13500,Casado,Medio,Jubilado,NULL,NULL
+1031,Marta,Herrera,M,1952-06-26,Málaga,Fuengirola,Secundarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1032,Eduardo,Castro,H,1956-03-08,Huelva,Lepe,Primarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1033,Ana,Soto,M,1960-09-14,Huelva,Lepe,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1034,Ramón,Ponce,H,1952-04-22,Almería,El Ejido,Secundarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1035,Beatriz,Reyes,M,1956-07-30,Almería,El Ejido,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1036,Aurelio,Vargas,H,1950-11-11,Cádiz,San Fernando,Secundarios,Jubilado,9500,Casado,Bajo,Jubilado,NULL,NULL
+1037,Francisca,Orozco,M,1954-05-18,Cádiz,San Fernando,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1038,Agustín,Quintero,H,1948-09-02,Sevilla,Coria,Secundarios,Jubilado,11000,Casado,Medio,Jubilado,NULL,NULL
+1039,Antonia,Ramos,M,1952-02-14,Sevilla,Coria,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1040,Joaquín,Silva,H,1956-06-25,Sevilla,Sevilla,Secundarios,Jubilado,12000,Casado,Medio,Jubilado,NULL,NULL
+1041,Ángeles,Ortega,M,1960-01-31,Sevilla,Sevilla,Secundarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1042,Salvador,Prieto,H,1952-08-07,Málaga,Málaga,Primarios,Jubilado,9000,Casado,Bajo,Jubilado,NULL,NULL
+1043,Soledad,Sánchez,M,1956-03-13,Málaga,Málaga,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1044,Mariano,Cortés,H,1950-12-29,Córdoba,Córdoba,Secundarios,Jubilado,10500,Casado,Bajo,Jubilado,NULL,NULL
+1045,Almudena,Montoya,M,1954-07-05,Córdoba,Córdoba,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1046,Pascual,Rueda,H,1948-04-16,Granada,Granada,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1047,Sofía,Iglesias,M,1952-10-22,Granada,Granada,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1048,Adolfo,Moya,H,1956-02-09,Jaén,Linares,Secundarios,Jubilado,11500,Casado,Bajo,Jubilado,NULL,NULL
+1049,Remedios,Segura,M,1960-08-27,Jaén,Linares,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1050,Benito,Acuña,H,1954-11-30,Cádiz,Jerez,Secundarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1051,Rosario,Delgado,M,1958-05-14,Cádiz,Jerez,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1052,Camilo,Martínez,H,1950-01-21,Almería,Adra,Primarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1053,Virtudes,Parra,M,1954-09-07,Almería,Adra,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1054,Claudio,Velasco,H,1948-06-12,Cádiz,El Puerto,Secundarios,Jubilado,11000,Casado,Medio,Jubilado,NULL,NULL
+1055,Verónica,Aguirre,M,1952-12-28,Cádiz,El Puerto,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1056,Damián,Bravo,H,1956-08-03,Sevilla,La Rinconada,Secundarios,Jubilado,12000,Casado,Medio,Jubilado,NULL,NULL
+1057,Violeta,Cabrera,M,1960-04-11,Sevilla,La Rinconada,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1058,Darío,Díaz,H,1952-10-15,Málaga,Ronda,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1059,Yolanda,Espinosa,M,1956-03-22,Málaga,Ronda,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1060,Severino,García,H,1950-07-14,Granada,Loja,Secundarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1061,Ximena,Gómez,M,1954-02-20,Granada,Loja,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1062,Tibaldo,Gutiérrez,H,1948-11-26,Córdoba,Montilla,Secundarios,Jubilado,11500,Casado,Medio,Jubilado,NULL,NULL
+1063,Zulema,Haro,M,1952-05-09,Córdoba,Montilla,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1064,Urbano,Iglesias,H,1956-09-17,Jaén,Martos,Primarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1065,Anastasia,Jordán,M,1960-01-25,Jaén,Martos,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1066,Valerio,León,H,1954-04-02,Sevilla,Mairena,Secundarios,Jubilado,12500,Casado,Medio,Jubilado,NULL,NULL
+1067,Bárbara,López,M,1958-08-08,Sevilla,Mairena,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1068,Waldo,Martín,H,1950-12-19,Málaga,Antequera,Secundarios,Jubilado,10500,Casado,Medio,Jubilado,NULL,NULL
+1069,Candelaria,Moreno,M,1954-06-27,Málaga,Antequera,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1070,Xandro,Muñoz,H,1948-02-05,Cádiz,Chiclana,Secundarios,Jubilado,11000,Casado,Bajo,Jubilado,NULL,NULL
+1071,Desideria,Núñez,M,1952-07-13,Cádiz,Chiclana,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1072,Yandel,Ocampo,H,1956-03-20,Huelva,Isla Cristina,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1073,Esperanza,Ortiz,M,1960-10-28,Huelva,Isla Cristina,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1074,Zacarías,Páez,H,1952-11-09,Almería,Níjar,Secundarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1075,Fidelia,Palacios,M,1956-04-17,Almería,Níjar,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1076,Alonso,Paredes,H,1950-08-23,Granada,Baza,Primarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1077,Genoveva,Pascual,M,1954-01-31,Granada,Baza,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1078,Bartolomé,Peña,H,1948-05-14,Córdoba,Priego,Secundarios,Jubilado,11500,Casado,Medio,Jubilado,NULL,NULL
+1079,Herminia,Peralta,M,1952-09-22,Córdoba,Priego,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1080,Casimiro,Pérez,H,1956-06-08,Sevilla,Sevilla,Secundarios,Jubilado,12000,Casado,Medio,Jubilado,NULL,NULL
+1081,Hipatia,Quintana,M,1960-02-14,Sevilla,Sevilla,Secundarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1082,Cándido,Ramírez,H,1952-10-07,Málaga,Málaga,Primarios,Jubilado,9000,Casado,Bajo,Jubilado,NULL,NULL
+1083,Irene,Ramos,M,1956-03-13,Málaga,Málaga,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1084,Celedonio,Reina,H,1950-01-19,Córdoba,Córdoba,Secundarios,Jubilado,10500,Casado,Medio,Jubilado,NULL,NULL
+1085,Jacinta,Rivas,M,1954-07-25,Córdoba,Córdoba,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1086,Constantino,Rivero,H,1948-11-30,Granada,Granada,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1087,Kusama,Robayo,M,1952-04-08,Granada,Granada,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1088,Cristóbal,Rodríguez,H,1956-09-12,Jaén,Linares,Secundarios,Jubilado,11500,Casado,Bajo,Jubilado,NULL,NULL
+1089,Leocadia,Rojas,M,1960-05-20,Jaén,Linares,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1090,Crescencio,Roldán,H,1954-12-02,Cádiz,Jerez,Secundarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1091,Margarita,Romero,M,1958-06-10,Cádiz,Jerez,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1092,Crisostomo,Rosales,H,1950-02-15,Almería,Roquetas,Secundarios,Jubilado,11000,Casado,Medio,Jubilado,NULL,NULL
+1093,Natividad,Rossi,M,1954-08-23,Almería,Roquetas,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1094,Demóstenes,Roza,H,1948-04-07,Huelva,Huelva,Primarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1095,Octavia,Rubio,M,1952-10-14,Huelva,Huelva,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1096,Donaciano,Rueda,H,1956-07-29,Sevilla,Dos Hermanas,Secundarios,Jubilado,12500,Casado,Medio,Jubilado,NULL,NULL
+1097,Perpetua,Ruelas,M,1960-01-06,Sevilla,Dos Hermanas,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1098,Doroteo,Ruiz,H,1952-11-18,Málaga,Marbella,Secundarios,Jubilado,14000,Casado,Medio,Jubilado,NULL,NULL
+1099,Prudencia,Salas,M,1956-05-25,Málaga,Marbella,Secundarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1100,Egidio,Salazar,H,1950-03-11,Cádiz,Cádiz,Primarios,Jubilado,9500,Casado,Bajo,Jubilado,NULL,NULL
+1101,Quiteria,Salcedo,M,1954-09-19,Cádiz,Cádiz,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1102,Eligio,Salinas,H,1948-07-02,Granada,Motril,Secundarios,Jubilado,10500,Casado,Bajo,Jubilado,NULL,NULL
+1103,Rafaela,Saltara,M,1952-01-08,Granada,Motril,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1104,Epifanio,Samaniego,H,1956-11-14,Jaén,Úbeda,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1105,Sabina,Sampedro,M,1960-06-22,Jaén,Úbeda,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1106,Estanislao,Sánchez,H,1954-09-03,Córdoba,Lucena,Secundarios,Jubilado,11000,Casado,Medio,Jubilado,NULL,NULL
+1107,Tecla,Sandoval,M,1958-03-11,Córdoba,Lucena,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1108,Eusebio,Santamaría,H,1950-12-27,Sevilla,Alcalá,Secundarios,Jubilado,12000,Casado,Medio,Jubilado,NULL,NULL
+1109,Ursulina,Santana,M,1954-04-05,Sevilla,Alcalá,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1110,Eutimio,Sarmiento,H,1948-08-19,Málaga,Fuengirola,Secundarios,Jubilado,13500,Casado,Medio,Jubilado,NULL,NULL
+1111,Valeriana,Satauste,M,1952-02-26,Málaga,Fuengirola,Secundarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1112,Evaristo,Saucedo,H,1956-06-04,Huelva,Lepe,Primarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1113,Walburga,Saudo,M,1960-12-12,Huelva,Lepe,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1114,Fabiano,Sauz,H,1952-04-18,Almería,El Ejido,Secundarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1115,Xenia,Sayas,M,1956-09-26,Almería,El Ejido,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1116,Faustino,Saynos,H,1950-07-08,Cádiz,San Fernando,Secundarios,Jubilado,9500,Casado,Bajo,Jubilado,NULL,NULL
+1117,Yanira,Saza,M,1954-01-15,Cádiz,San Fernando,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1118,Fulgencio,Scheid,H,1948-10-29,Sevilla,Coria,Secundarios,Jubilado,11500,Casado,Medio,Jubilado,NULL,NULL
+1119,Zenaida,Seco,M,1952-03-07,Sevilla,Coria,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1120,Gerasimo,Secreto,H,1956-08-13,Sevilla,Sevilla,Secundarios,Jubilado,12500,Casado,Medio,Jubilado,NULL,NULL
+1121,Abigaíl,Segovia,M,1960-04-21,Sevilla,Sevilla,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1122,Gildardo,Seis,H,1954-01-05,Málaga,Málaga,Primarios,Jubilado,9000,Casado,Bajo,Jubilado,NULL,NULL
+1123,Blanca,Seisdos,M,1958-07-11,Málaga,Málaga,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1124,Gislerio,Selma,H,1950-11-17,Córdoba,Córdoba,Secundarios,Jubilado,10500,Casado,Bajo,Jubilado,NULL,NULL
+1125,Cristina,Semence,M,1954-05-24,Córdoba,Córdoba,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1126,Godofredo,Semeno,H,1948-02-08,Granada,Granada,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1127,Dionisia,Sencillo,M,1952-08-16,Granada,Granada,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1128,Gómez,Senén,H,1956-04-24,Jaén,Linares,Secundarios,Jubilado,11500,Casado,Bajo,Jubilado,NULL,NULL
+1129,Emilia,Senís,M,1960-10-02,Jaén,Linares,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1130,Graciano,Seno,H,1952-09-11,Cádiz,Jerez,Secundarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1131,Fabiana,Senra,M,1956-02-19,Cádiz,Jerez,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1132,Graciliano,Senta,H,1950-06-27,Almería,Adra,Primarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1133,Gabriela,Sentana,M,1954-12-05,Almería,Adra,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1134,Gregorio,Sentís,H,1948-03-13,Cádiz,El Puerto,Secundarios,Jubilado,11000,Casado,Medio,Jubilado,NULL,NULL
+1135,Hadasa,Senticosilla,M,1952-09-20,Cádiz,El Puerto,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1136,Gregoriáno,Sentido,H,1956-07-14,Sevilla,La Rinconada,Secundarios,Jubilado,12500,Casado,Medio,Jubilado,NULL,NULL
+1137,Ildegarda,Sentiés,M,1960-01-22,Sevilla,La Rinconada,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1138,Gualberto,Sentilhón,H,1952-05-30,Málaga,Ronda,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1139,Jacinta,Sentina,M,1956-11-08,Málaga,Ronda,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1140,Guarino,Sentimiento,H,1950-02-16,Granada,Loja,Secundarios,Jubilado,10500,Casado,Bajo,Jubilado,NULL,NULL
+1141,Justa,Sentís,M,1954-08-24,Granada,Loja,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1142,Hermenegildo,Sentiscal,H,1948-12-09,Córdoba,Montilla,Secundarios,Jubilado,11500,Casado,Medio,Jubilado,NULL,NULL
+1143,Justina,Sentisco,M,1952-06-17,Córdoba,Montilla,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1144,Herminio,Sentisqueta,H,1956-10-25,Jaén,Martos,Primarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1145,Kassandra,Sentisquitano,M,1960-03-03,Jaén,Martos,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1146,Hernán,Sentistálogo,H,1954-07-10,Sevilla,Mairena,Secundarios,Jubilado,12000,Casado,Medio,Jubilado,NULL,NULL
+1147,Kimberly,Sentistáloga,M,1958-01-18,Sevilla,Mairena,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1148,Herodes,Sentisteo,H,1950-05-26,Málaga,Antequera,Secundarios,Jubilado,10500,Casado,Bajo,Jubilado,NULL,NULL
+1149,Leandra,Sentisticá,M,1954-11-04,Málaga,Antequera,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1150,Herrera,Sentistito,H,1948-09-12,Cádiz,Chiclana,Secundarios,Jubilado,11000,Casado,Bajo,Jubilado,NULL,NULL
+1151,Leonarda,Sentistola,M,1952-04-20,Cádiz,Chiclana,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1152,Hexiquio,Sentistolá,H,1956-02-07,Huelva,Isla Cristina,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1153,Leonila,Sentistoria,M,1960-08-15,Huelva,Isla Cristina,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1154,Hilario,Sentistoriada,H,1952-03-23,Almería,Níjar,Secundarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1155,Liberata,Sentistoril,M,1956-09-01,Almería,Níjar,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1156,Hipacio,Sentistorina,H,1950-01-09,Granada,Baza,Primarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1157,Libertina,Sentistornada,M,1954-07-17,Granada,Baza,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1158,Hipaliada,Sentistoruelo,H,1948-11-21,Córdoba,Priego,Secundarios,Jubilado,11500,Casado,Medio,Jubilado,NULL,NULL
+1159,Librada,Sentistotela,M,1952-05-29,Córdoba,Priego,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1160,Hipólito,Sentistotilla,H,1956-08-06,Sevilla,Sevilla,Secundarios,Jubilado,12000,Casado,Medio,Jubilado,NULL,NULL
+1161,Liberina,Sentistucia,M,1960-02-14,Sevilla,Sevilla,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1162,Hirtaco,Sentisuela,H,1954-10-20,Málaga,Málaga,Primarios,Jubilado,9000,Casado,Bajo,Jubilado,NULL,NULL
+1163,Liboria,Sentisueña,M,1958-04-28,Málaga,Málaga,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1164,Honofre,Sentisueño,H,1950-12-05,Córdoba,Córdoba,Secundarios,Jubilado,10500,Casado,Medio,Jubilado,NULL,NULL
+1165,Lidia,Sentisuficiencia,M,1954-06-13,Córdoba,Córdoba,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1166,Liduina,Sentisuficiente,H,1948-02-18,Granada,Granada,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1167,Lilia,Sentisuficiencia,M,1952-08-26,Granada,Granada,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1168,Liliana,Sentisuficiente,H,1956-04-03,Jaén,Linares,Secundarios,Jubilado,11500,Casado,Bajo,Jubilado,NULL,NULL
+1169,Lilith,Sentisugador,M,1960-10-11,Jaén,Linares,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1170,Lina,Sentisugere,H,1952-01-19,Cádiz,Jerez,Secundarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1171,Linda,Sentisugiera,M,1956-07-27,Cádiz,Jerez,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1172,Lindaura,Sentisugimiento,H,1950-11-04,Almería,Roquetas,Primarios,Jubilado,11000,Casado,Medio,Jubilado,NULL,NULL
+1173,Línea,Sentisugió,M,1954-05-12,Almería,Roquetas,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1174,Lioba,Sentisugir,H,1948-03-07,Huelva,Huelva,Secundarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1175,Lirio,Sentisugirse,M,1952-09-15,Huelva,Huelva,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1176,Lisarda,Sentisugisma,H,1956-06-22,Sevilla,Dos Hermanas,Secundarios,Jubilado,12500,Casado,Medio,Jubilado,NULL,NULL
+1177,Liuba,Sentisugismo,M,1960-12-30,Sevilla,Dos Hermanas,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1178,Livia,Sentisugismología,H,1952-04-08,Málaga,Marbella,Secundarios,Jubilado,14000,Casado,Medio,Jubilado,NULL,NULL
+1179,Liviana,Sentisugista,M,1956-10-16,Málaga,Marbella,Secundarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1180,Lívida,Sentisugita,H,1950-02-24,Cádiz,Cádiz,Primarios,Jubilado,9500,Casado,Bajo,Jubilado,NULL,NULL
+1181,Lindaura,Sentisugitana,M,1954-08-02,Cádiz,Cádiz,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1182,Línea,Sentisugitano,H,1948-06-07,Granada,Motril,Secundarios,Jubilado,10500,Casado,Bajo,Jubilado,NULL,NULL
+1183,Lioba,Sentisugitaño,M,1952-12-15,Granada,Motril,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1184,Lirio,Sentisugitara,H,1956-09-21,Jaén,Úbeda,Primarios,Jubilado,8500,Casado,Bajo,Jubilado,NULL,NULL
+1185,Lisarda,Sentisugitarla,M,1960-03-29,Jaén,Úbeda,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1186,Liuba,Sentisugitarra,H,1954-01-06,Córdoba,Lucena,Secundarios,Jubilado,11000,Casado,Medio,Jubilado,NULL,NULL
+1187,Livia,Sentisugitarria,M,1958-07-14,Córdoba,Lucena,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1188,Liviana,Sentisugitarro,H,1950-11-20,Sevilla,Alcalá,Secundarios,Jubilado,12000,Casado,Medio,Jubilado,NULL,NULL
+1189,Lívida,Sentisugitarron,M,1954-05-28,Sevilla,Alcalá,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1190,Lindaura,Sentisugitarros,H,1948-09-05,Málaga,Fuengirola,Secundarios,Jubilado,13500,Casado,Medio,Jubilado,NULL,NULL
+1191,Línea,Sentisugitarrueco,M,1952-03-13,Málaga,Fuengirola,Secundarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+1192,Lioba,Sentisugitaruelo,H,1956-07-19,Huelva,Lepe,Primarios,Jubilado,8000,Casado,Bajo,Jubilado,NULL,NULL
+1193,Lirio,Sentisugitaruja,M,1960-01-27,Huelva,Lepe,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1194,Lisarda,Sentisugitaruja,H,1952-11-04,Almería,El Ejido,Secundarios,Jubilado,10000,Casado,Bajo,Jubilado,NULL,NULL
+1195,Liuba,Sentisugitarujada,M,1956-04-12,Almería,El Ejido,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1196,Livia,Sentisugitarujador,H,1950-08-18,Cádiz,San Fernando,Secundarios,Jubilado,9500,Casado,Bajo,Jubilado,NULL,NULL
+1197,Liviana,Sentisugitarujade,M,1954-02-26,Cádiz,San Fernando,Primarios,Ama de Casa,0,Casada,Bajo,Ama de Casa,NULL,NULL
+1198,Lívida,Sentisugitarujero,H,1948-10-03,Sevilla,Coria,Secundarios,Jubilado,11500,Casado,Medio,Jubilado,NULL,NULL
+1199,Lindaura,Sentisugitarujil,M,1952-04-11,Sevilla,Coria,Primarios,Ama de Casa,0,Casada,Medio,Ama de Casa,NULL,NULL
+2001,Diego,Muñoz,H,1998-05-12,Sevilla,Sevilla,Universitarios,Empleado,25000,Soltero,Medio,Programador,1001,1002
+2002,Ana,Gómez,M,2001-11-03,Málaga,Málaga,Secundarios,Estudiante,0,Soltera,Bajo,Estudiante,1003,1004
+2003,José,López,H,1975-07-21,Córdoba,Córdoba,Secundarios,Autónomo,38000,Casado,Alto,Comerciante,1005,1006
+2004,Carmen,Sánchez,M,1984-02-17,Granada,Granada,Universitarios,Empleado,27000,Casada,Medio,Administrativa,1007,2095
+2005,Francisco,Pérez,H,1968-06-09,Jaén,Linares,Primarios,Jubilado,15000,Casado,Bajo,Jubilado,1009,1010
+2006,Lucía,Rodríguez,M,1996-09-30,Cádiz,Jerez de la Frontera,Universitarios,Empleado,23000,Soltera,Medio,Diseñadora,1011,1012
+2007,Manuel,Gómez,H,1982-12-14,Huelva,Huelva,Secundarios,Empleado,22000,Casado,Medio,Conductor,1013,1014
+2008,Laura,Fernández,M,2000-04-08,Almería,Roquetas de Mar,Secundarios,Estudiante,0,Soltera,Bajo,Estudiante,1015,1016
+2009,Rafael,Ruiz,H,1975-06-19,Sevilla,Dos Hermanas,Secundarios,Empleado,24500,Casado,Medio,Obrero,1017,1018
+2010,Isabel,Díaz,M,1987-10-22,Málaga,Marbella,Universitarios,Autónomo,42000,Casada,Alto,Consultora,1019,1020
+2011,Juan,Moreno,H,1990-02-11,Cádiz,Cádiz,Universitarios,Empleado,23500,Soltero,Medio,Ingeniero,1021,1022
+2012,Lucía,Muñoz,M,1998-08-05,Granada,Motril,Secundarios,Empleado,19000,Soltera,Bajo,Dependienta,1023,1024
+2013,Pedro,Álvarez,H,1965-01-28,Jaén,Úbeda,Primarios,Jubilado,15000,Casado,Bajo,Jubilado,1025,1026
+2014,Sara,Romero,M,1984-09-13,Córdoba,Lucena,Universitarios,Empleado,27000,Casada,Medio,Administrativa,1027,1028
+2015,David,Navarro,H,1993-04-16,Sevilla,Alcalá de Guadaíra,Universitarios,Empleado,25000,Soltero,Medio,Programador,1029,1030
+2016,Elena,Torres,M,1979-12-01,Málaga,Fuengirola,Secundarios,Empleado,22000,Casada,Medio,Enfermera,1031,1032
+2017,Miguel,Domínguez,H,1988-07-07,Huelva,Lepe,Secundarios,Autónomo,33000,Casado,Alto,Comerciante,1033,1034
+2018,Patricia,Vega,M,1996-03-21,Almería,El Ejido,Secundarios,Empleado,20000,Soltera,Bajo,Recepcionista,1035,1036
+2019,Javier,Ramos,H,1972-11-18,Cádiz,San Fernando,Secundarios,Empleado,24000,Casado,Medio,Obrero,1037,1038
+2020,Rocío,Gil,M,1981-05-26,Sevilla,Coria del Río,Universitarios,Empleado,29000,Casada,Medio,Administrativa,1039,1040
+2021,Fernando,Hernández,H,1995-02-14,Sevilla,Sevilla,Universitarios,Empleado,26000,Soltero,Medio,Analista,1041,1042
+2022,María,Martínez,M,2000-08-23,Málaga,Málaga,Secundarios,Estudiante,0,Soltera,Bajo,Estudiante,1043,1044
+2023,José,Lara,H,1978-04-11,Córdoba,Córdoba,Secundarios,Autónomo,34000,Casado,Alto,Comerciante,1045,1046
+2024,Carmen,Jiménez,M,1985-12-19,Granada,Granada,Universitarios,Empleado,28000,Casada,Medio,Administrativa,1047,1048
+2025,Francisco,Navarro,H,1966-09-02,Jaén,Linares,Primarios,Jubilado,14500,Casado,Bajo,Jubilado,1049,1050
+2026,Ana,Gutiérrez,M,1997-01-30,Cádiz,Jerez de la Frontera,Universitarios,Empleado,21000,Soltera,Medio,Docente,1051,1052
+2027,Manuel,Romero,H,1980-05-05,Almería,Adra,Secundarios,Empleado,22000,Casado,Medio,Conductor,1053,1054
+2028,Laura,Ortiz,M,1999-08-19,Cádiz,El Puerto de Santa María,Secundarios,Estudiante,0,Soltera,Bajo,Estudiante,1055,1056
+2029,Rafael,Suárez,H,1976-03-22,Sevilla,La Rinconada,Secundarios,Empleado,24800,Casado,Medio,Obrero,1057,1058
+2030,Isabel,Blanco,M,1988-12-30,Málaga,Ronda,Universitarios,Empleado,27000,Casada,Medio,Administrativa,1059,1060
+2031,Juan,Domínguez,H,1994-07-14,Granada,Loja,Secundarios,Empleado,20000,Soltero,Bajo,Auxiliar,1061,1062
+2032,Lucía,Fernández,M,1986-02-06,Córdoba,Montilla,Universitarios,Empleado,26000,Casada,Medio,Administrativa,1063,1064
+2033,Pedro,Pérez,H,1970-10-01,Jaén,Martos,Secundarios,Empleado,23000,Casado,Medio,Obrero,1065,1066
+2034,Sara,Torres,M,1999-01-25,Sevilla,Mairena del Aljarafe,Universitarios,Estudiante,0,Soltera,Bajo,Estudiante,1067,1068
+2035,David,Ramos,H,1981-08-09,Málaga,Antequera,Secundarios,Empleado,24000,Casado,Medio,Conductor,1069,1070
+2036,Elena,Vega,M,1977-06-17,Cádiz,Chiclana de la Frontera,Secundarios,Empleado,22000,Casada,Medio,Enfermera,1071,1072
+2037,Miguel,Hernández,H,1989-11-11,Huelva,Isla Cristina,Secundarios,Autónomo,35000,Casado,Alto,Comerciante,1073,1074
+2038,Patricia,Moreno,M,1992-03-02,Almería,Níjar,Universitarios,Empleado,23000,Soltera,Medio,Administrativa,1075,1076
+2039,Javier,Gil,H,1968-04-28,Granada,Baza,Primarios,Jubilado,16000,Casado,Bajo,Jubilado,1077,1078
+2040,Rocío,Castillo,M,1985-09-19,Córdoba,Priego de Córdoba,Universitarios,Empleado,28000,Casada,Medio,Administrativa,1079,1080
+2041,Diego,Romero,H,1998-05-12,Sevilla,Sevilla,Universitarios,Empleado,25000,Soltero,Medio,Programador,1081,1082
+2042,Ana,López,M,2001-11-03,Málaga,Málaga,Secundarios,Estudiante,0,Soltera,Bajo,Estudiante,1083,1084
+2043,José,García,H,1975-07-21,Córdoba,Córdoba,Secundarios,Autónomo,38000,Casado,Alto,Comerciante,1085,1086
+2044,Carmen,Sánchez,M,1984-02-17,Granada,Granada,Universitarios,Empleado,27000,Casada,Medio,Administrativa,1087,1088
+2045,Francisco,Pérez,H,1968-06-09,Jaén,Linares,Primarios,Jubilado,15000,Casado,Bajo,Jubilado,1089,1090
+2046,Lucía,Rodríguez,M,1996-09-30,Cádiz,Jerez de la Frontera,Universitarios,Empleado,23000,Soltera,Medio,Diseñadora,1091,1092
+2047,Manuel,Gómez,H,1982-12-14,Huelva,Huelva,Secundarios,Empleado,22000,Casado,Medio,Conductor,1093,1094
+2048,Laura,Fernández,M,2000-04-08,Almería,Roquetas de Mar,Secundarios,Estudiante,0,Soltera,Bajo,Estudiante,1095,1096
+2049,Rafael,Ruiz,H,1975-06-19,Sevilla,Dos Hermanas,Secundarios,Empleado,24500,Casado,Medio,Obrero,1097,1098
+2050,Isabel,Díaz,M,1987-10-22,Málaga,Marbella,Universitarios,Autónomo,42000,Casada,Alto,Consultora,1099,1100
+2051,Juan,Moreno,H,1990-02-11,Cádiz,Cádiz,Universitarios,Empleado,23500,Soltero,Medio,Ingeniero,1101,1102
+2052,Lucía,Muñoz,M,1998-08-05,Granada,Motril,Secundarios,Empleado,19000,Soltera,Bajo,Dependienta,1103,1104
+2053,Pedro,Álvarez,H,1965-01-28,Jaén,Úbeda,Primarios,Jubilado,15000,Casado,Bajo,Jubilado,1105,1106
+2054,Sara,Romero,M,1984-09-13,Córdoba,Lucena,Universitarios,Empleado,27000,Casada,Medio,Administrativa,1107,1196
+2055,David,Navarro,H,1993-04-16,Sevilla,Alcalá de Guadaíra,Universitarios,Empleado,25000,Soltero,Medio,Programador,1109,1110
+2056,Elena,Torres,M,1979-12-01,Málaga,Fuengirola,Secundarios,Empleado,22000,Casada,Medio,Enfermera,1111,1112
+2057,Miguel,Domínguez,H,1988-07-07,Huelva,Lepe,Secundarios,Autónomo,33000,Casado,Alto,Comerciante,1113,1114
+2058,Patricia,Vega,M,1996-03-21,Almería,El Ejido,Secundarios,Empleado,20000,Soltera,Bajo,Recepcionista,1115,1116
+2059,Javier,Ramos,H,1972-11-18,Cádiz,San Fernando,Secundarios,Empleado,24000,Casado,Medio,Obrero,1117,1118
+2060,Rocío,Gil,M,1981-05-26,Sevilla,Coria del Río,Universitarios,Empleado,29000,Casada,Medio,Administrativa,1119,1120
+2061,Fernando,Hernández,H,1995-02-14,Sevilla,Sevilla,Universitarios,Empleado,26000,Soltero,Medio,Analista,1121,1122
+2062,María,Martínez,M,2000-08-23,Málaga,Málaga,Secundarios,Estudiante,0,Soltera,Bajo,Estudiante,1123,1124
+2063,José,Lara,H,1978-04-11,Córdoba,Córdoba,Secundarios,Autónomo,34000,Casado,Alto,Comerciante,1125,1126
+2064,Carmen,Jiménez,M,1985-12-19,Granada,Granada,Universitarios,Empleado,28000,Casada,Medio,Administrativa,1127,1128
+2065,Francisco,Navarro,H,1966-09-02,Jaén,Linares,Primarios,Jubilado,14500,Casado,Bajo,Jubilado,1129,1130
+2066,Ana,Gutiérrez,M,1997-01-30,Cádiz,Jerez de la Frontera,Universitarios,Empleado,21000,Soltera,Medio,Docente,1131,1132
+2067,Manuel,Romero,H,1980-05-05,Almería,Adra,Secundarios,Empleado,22000,Casado,Medio,Conductor,1133,1134
+2068,Laura,Ortiz,M,1999-08-19,Cádiz,El Puerto de Santa María,Secundarios,Estudiante,0,Soltera,Bajo,Estudiante,1135,1190
+2069,Rafael,Suárez,H,1976-03-22,Sevilla,La Rinconada,Secundarios,Empleado,24800,Casado,Medio,Obrero,1137,1138
+2070,Isabel,Blanco,M,1988-12-30,Málaga,Ronda,Universitarios,Empleado,27000,Casada,Medio,Administrativa,1139,1140
+2071,Juan,Domínguez,H,1994-07-14,Granada,Loja,Secundarios,Empleado,20000,Soltero,Bajo,Auxiliar,1141,1142
+2072,Lucía,Fernández,M,1986-02-06,Córdoba,Montilla,Universitarios,Empleado,26000,Casada,Medio,Administrativa,1143,1144
+2073,Pedro,Pérez,H,1970-10-01,Jaén,Martos,Secundarios,Empleado,23000,Casado,Medio,Obrero,1145,1146
+2074,Sara,Torres,M,1999-01-25,Sevilla,Mairena del Aljarafe,Universitarios,Estudiante,0,Soltera,Bajo,Estudiante,1147,1148
+2075,David,Ramos,H,1981-08-09,Málaga,Antequera,Secundarios,Empleado,24000,Casado,Medio,Conductor,1149,1196
+2076,Elena,Vega,M,1977-06-17,Cádiz,Chiclana de la Frontera,Secundarios,Empleado,22000,Casada,Medio,Enfermera,1151,1152
+2077,Miguel,Hernández,H,1989-11-11,Huelva,Isla Cristina,Secundarios,Autónomo,35000,Casado,Alto,Comerciante,1153,1154
+2078,Patricia,Moreno,M,1992-03-02,Almería,Níjar,Universitarios,Empleado,23000,Soltera,Medio,Administrativa,1155,1156
+2079,Javier,Gil,H,1968-04-28,Granada,Baza,Primarios,Jubilado,16000,Casado,Bajo,Jubilado,1157,1158
+2080,Rocío,Castillo,M,1985-09-19,Córdoba,Priego de Córdoba,Universitarios,Empleado,28000,Casada,Medio,Administrativa,1159,1160
+2081,Diego,Romero,H,1998-05-12,Sevilla,Sevilla,Universitarios,Empleado,25000,Soltero,Medio,Programador,1161,1190
+2082,Ana,López,M,2001-11-03,Málaga,Málaga,Secundarios,Estudiante,0,Soltera,Bajo,Estudiante,1163,1164
+2083,José,García,H,1975-07-21,Córdoba,Córdoba,Secundarios,Autónomo,38000,Casado,Alto,Comerciante,1165,1166
+2084,Carmen,Sánchez,M,1984-02-17,Granada,Granada,Universitarios,Empleado,27000,Casada,Medio,Administrativa,1167,1168
+2085,Francisco,Pérez,H,1968-06-09,Jaén,Linares,Primarios,Jubilado,15000,Casado,Bajo,Jubilado,1169,1170
+2086,Lucía,Rodríguez,M,1996-09-30,Cádiz,Jerez de la Frontera,Universitarios,Empleado,23000,Soltera,Medio,Diseñadora,1171,1196
+2087,Manuel,Gómez,H,1982-12-14,Huelva,Huelva,Secundarios,Empleado,22000,Casado,Medio,Conductor,1173,1174
+2088,Laura,Fernández,M,2000-04-08,Almería,Roquetas de Mar,Secundarios,Estudiante,0,Soltera,Bajo,Estudiante,1175,1190
+2089,Rafael,Ruiz,H,1975-06-19,Sevilla,Dos Hermanas,Secundarios,Empleado,24500,Casado,Medio,Obrero,1177,1178
+2090,Isabel,Díaz,M,1987-10-22,Málaga,Marbella,Universitarios,Autónomo,42000,Casada,Alto,Consultora,1179,1180
+2091,Juan,Moreno,H,1990-02-11,Cádiz,Cádiz,Universitarios,Empleado,23500,Soltero,Medio,Ingeniero,1181,1182
+2092,Lucía,Muñoz,M,1998-08-05,Granada,Motril,Secundarios,Empleado,19000,Soltera,Bajo,Dependienta,1183,1196
+2093,Pedro,Álvarez,H,1965-01-28,Jaén,Úbeda,Primarios,Jubilado,15000,Casado,Bajo,Jubilado,1185,1186
+2094,Sara,Romero,M,1984-09-13,Córdoba,Lucena,Universitarios,Empleado,27000,Casada,Medio,Administrativa,1187,1188
+2095,David,Navarro,H,1993-04-16,Sevilla,Alcalá de Guadaíra,Universitarios,Empleado,25000,Soltero,Medio,Programador,1189,1190
+2096,Elena,Torres,M,1979-12-01,Málaga,Fuengirola,Secundarios,Empleado,22000,Casada,Medio,Enfermera,1191,1192
+2097,Miguel,Domínguez,H,1988-07-07,Huelva,Lepe,Secundarios,Autónomo,33000,Casado,Alto,Comerciante,1193,1194
+2098,Patricia,Vega,M,1996-03-21,Almería,El Ejido,Secundarios,Empleado,20000,Soltera,Bajo,Recepcionista,1195,1196
+2099,Javier,Ramos,H,1972-11-18,Cádiz,San Fernando,Secundarios,Empleado,24000,Casado,Medio,Obrero,1197,1198
+2100,Rocío,Gil,M,1981-05-26,Sevilla,Coria del Río,Universitarios,Empleado,29000,Casada,Medio,Administrativa,1199,1190

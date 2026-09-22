@@ -1,0 +1,93 @@
+<mxfile host="65bd71144e">
+    <diagram id="na-s248npu48qZdTYN6d" name="Page-1">
+        <mxGraphModel dx="663" dy="947" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Usario&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- nombre : string&lt;br&gt;-&amp;nbsp; email: string&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- contrasenia : string&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ login( ): boolean&lt;br&gt;+ logout( ): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ cambiarContrasenia(nueva: String): void&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+actualizarEmil(nuevo: String): void&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="400" width="250" height="200" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="rcxJHxJP0hHB_stcCE2j" name="Page-2">
+        <mxGraphModel dx="1422" dy="945" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="TzyJqWOryKy2yPNWt20t-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Libro&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- titulo: String&lt;br&gt;- autor: String&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ prestar( ): Type&lt;br&gt;+ devolver( ): Type&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="233" y="520" width="190" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="TzyJqWOryKy2yPNWt20t-4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Leactor&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- nombre: String&lt;br&gt;- numeroSocio: int&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ tomarPrestado(1: libro ): void&lt;br&gt;+ devolverLibro(1: libro ): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="235" y="910" width="190" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="TzyJqWOryKy2yPNWt20t-5" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="328" y="660" as="sourcePoint"/>
+                        <mxPoint x="332" y="920" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="322" y="750"/>
+                            <mxPoint x="334" y="750"/>
+                            <mxPoint x="334" y="850"/>
+                            <mxPoint x="332" y="850"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="TzyJqWOryKy2yPNWt20t-6" value="0..1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" parent="TzyJqWOryKy2yPNWt20t-5" connectable="0" vertex="1">
+                    <mxGeometry x="-1" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="TzyJqWOryKy2yPNWt20t-7" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" parent="TzyJqWOryKy2yPNWt20t-5" connectable="0" vertex="1">
+                    <mxGeometry x="1" relative="1" as="geometry">
+                        <mxPoint x="-10" y="-20" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="JSwVummR7Q8sH6uYMbcQ-6" value="&lt;li data-end=&quot;1396&quot; data-start=&quot;1356&quot;&gt;&lt;p data-end=&quot;1396&quot; data-start=&quot;1358&quot;&gt;Un lector puede tener &lt;strong data-end=&quot;1387&quot; data-start=&quot;1380&quot;&gt;0..&lt;/strong&gt;* libros.&lt;/p&gt;&lt;br/&gt;&lt;/li&gt;&lt;br/&gt;&lt;li data-end=&quot;1447&quot; data-start=&quot;1397&quot;&gt;&lt;br/&gt;&lt;p data-end=&quot;1447&quot; data-start=&quot;1399&quot;&gt;Un libro puede estar prestado a &lt;strong data-end=&quot;1439&quot; data-start=&quot;1431&quot;&gt;0..1&lt;/strong&gt; lector.&lt;/p&gt;&lt;br/&gt;&lt;/li&gt;&lt;br/&gt;&lt;li data-end=&quot;1502&quot; data-start=&quot;1448&quot;&gt;&lt;br/&gt;&lt;p data-end=&quot;1502&quot; data-start=&quot;1450&quot;&gt;Es una asociación bidireccional con multiplicidades.&lt;/p&gt;&lt;/li&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="1120" width="380" height="220" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="g7NJD5Bvi6vKRljGbppA" name="Page-3">
+        <mxGraphModel dx="2035" dy="788" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="42ks2uesyMSC2_21U312-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Producto&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-&amp;nbsp; Coding: String&lt;br&gt;- nombre: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-precio: double&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ calcularPrecio(): Double&lt;br&gt;+ mostrarinfo(): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="360" width="190" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="42ks2uesyMSC2_21U312-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;br&gt;&lt;b&gt;ProductoFisico&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-&amp;nbsp; peso: Double&lt;br&gt;- dimensiones: String&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ calcularEnvio(): Double&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="-170" y="360" width="190" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="42ks2uesyMSC2_21U312-3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;br&gt;&lt;b&gt;ProductoDigital&amp;nbsp;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-&amp;nbsp; urlDescarga: String&lt;br&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ generaLink(): Double&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="350" width="190" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="42ks2uesyMSC2_21U312-5" value="" style="ellipse;whiteSpace=wrap;html=1;align=center;aspect=fixed;fillColor=none;strokeColor=none;resizable=0;perimeter=centerPerimeter;rotatable=0;allowArrows=0;points=[];outlineConnect=1;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="530" width="10" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="ygS8OKwKAuhd5wEO3n-_-1" value="" style="endArrow=block;endSize=16;endFill=0;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="42ks2uesyMSC2_21U312-1" target="42ks2uesyMSC2_21U312-2">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="40" y="470" as="sourcePoint"/>
+                        <mxPoint x="200" y="470" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ygS8OKwKAuhd5wEO3n-_-2" value="" style="endArrow=block;endSize=16;endFill=0;html=1;" edge="1" parent="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="360" y="420" as="sourcePoint"/>
+                        <mxPoint x="520" y="420" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="ueiyO8351TZw_AAheiLn" name="Page-4">
+        <mxGraphModel dx="663" dy="947" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="Ues_yTnaGTFLfPz3WWd8-1" value="+----------------------+&#xa;|       Persona        |&#xa;+----------------------+&#xa;| - nombre: String     |&#xa;| - email: String      |&#xa;+----------------------+&#xa;| + enviarMensaje(): void |&#xa;+----------------------+&#xa;         ▲&#xa;         |&#xa; -------------------------&#xa; |                       |&#xa;+----------------+   +----------------+&#xa;|   Estudiante   |   |   Profesor     |&#xa;+----------------+   +----------------+&#xa;| - matricula: String| | - especialidad: String |&#xa;+----------------+   +----------------+&#xa;| + matricularse(a: Asignatura): void |&#xa;| + consultarNotas(): void            |&#xa;+----------------+   | + impartir(a: Asignatura): void |&#xa;                     +----------------+&#xa;&#xa;&#xa;+----------------------+&#xa;|      Asignatura      |&#xa;+----------------------+&#xa;| - codigo: String     |&#xa;| - titulo: String     |&#xa;+----------------------+&#xa;| + asignarProfesor(p: Profesor): void |&#xa;+----------------------+" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="360" width="290" height="470" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
