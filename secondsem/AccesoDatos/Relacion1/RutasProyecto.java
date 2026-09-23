@@ -17,7 +17,7 @@ Path clubes = datos.resolve("clubes.txt");
 try {
 Files.createDirectories(datos);
 Files.createDirectories(copias);
-
+Files.createDirectories();
 if (files.notExists(clubes)) {
 Files.createFile(clubes);
 }
