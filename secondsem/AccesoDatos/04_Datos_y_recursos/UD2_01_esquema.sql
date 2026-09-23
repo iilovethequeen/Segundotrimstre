@@ -1,0 +1,18 @@
+CREATE DATABASE IF NOT EXISTS ad_clubes
+  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE ad_clubes;
+
+CREATE TABLE IF NOT EXISTS club (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(80) NOT NULL UNIQUE,
+    ciudad VARCHAR(80) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS jugador (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(80) NOT NULL,
+    dorsal INT NOT NULL,
+    club_id BIGINT NOT NULL,
+    CONSTRAINT fk_jugador_club
+      FOREIGN KEY (club_id) REFERENCES club(id)
+);
