@@ -1,0 +1,17 @@
+ARCHIVOS DE DATOS Y USO ORIENTATIVO
+
+clubes.csv / clubes.xml / clubes.json: conversión y comparación multiformato.
+clubes_errores.csv: validación e importación con errores.
+videojuegos.csv / videojuegos.json: ejercicios de lectura, repositorio y cambio de formato.
+alumnos.csv: búsquedas y serialización.
+inventario.csv: CRUD, copias y proyectos integrados.
+biblioteca.csv / biblioteca.xml / libros.json: serialización, XML y repaso.
+reservas.csv: bajas en texto.
+productos.csv / productos.json: conversión y proyectos integrados.
+productos_errores.csv: validación de registros defectuosos.
+productos_malformado.json: prueba de importación JSON fallida.
+empleados.csv: datos para objetos serializables.
+peliculas.csv / peliculas.xml / peliculas_incompleto.xml: XML, repositorios y validación.
+rutas.csv: repositorios intercambiables.
+
+Todos los datos son ficticios y están codificados en UTF-8.
