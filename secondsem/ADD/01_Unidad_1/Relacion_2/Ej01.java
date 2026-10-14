@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Ej01 {
 
     public static void main(String[] args) {
-        File archivo = new File("videojuegos.csv");
+        File archivo = new File("C:\\Users\\Otaku\\OneDrive\\Desktop\\Segundotrimstre\\secondsem\\ADD\\01_Unidad_1\\04_Datos_y_recursos\\videojuegos.csv");
 
         try (Scanner scanner = new Scanner(archivo)) {
             // 1. Ignorar la cabecera si el archivo no está vacío
