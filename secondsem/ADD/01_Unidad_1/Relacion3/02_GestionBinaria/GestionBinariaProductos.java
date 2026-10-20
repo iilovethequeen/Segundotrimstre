@@ -41,6 +41,7 @@ public class GestionBinariaProductos {
         int id = scanner.nextInt();
         System.out.print("Introduce el nuevo stock: ");
         int nuevoStock = scanner.nextInt();
+        scanner.close(); // Good practice to close the scanner
 
         // TODO 5: si existe, modificarlo y guardar de nuevo la lista completa.
         boolean encontrado = false;
@@ -57,6 +58,13 @@ public class GestionBinariaProductos {
             return;
         }
 
-        // TODO 6: volver a cargar para comprobar la persistencia.
+        // TODO 6: volver a guardar para comprobar la persistencia.
+        try (java.io.ObjectOutputStream oos = new java.io.ObjectOutputStream(
+                java.nio.file.Files.newOutputStream(archivo))) {
+            oos.writeObject(productos);
+            System.out.println("¡Stock actualizado y guardado correctamente en " + archivo.toString() + "!");
+        } catch (java.io.IOException e) {
+            System.err.println("Error al guardar los cambios: " + e.getMessage());
+        }
     }
 }
