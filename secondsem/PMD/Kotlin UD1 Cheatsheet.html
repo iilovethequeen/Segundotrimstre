@@ -1,0 +1,1464 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kotlin UD1 Cheatsheet</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: tabbed reference card with compact code blocks */
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --surface-alt: #f0eeea;
+    --fg: #1a1a1a;
+    --fg-dim: #5c5a56;
+    --accent: #2d6a4f;
+    --accent-light: #d8f3dc;
+    --code-bg: #1b2430;
+    --code-fg: #e8e6e1;
+    --kw: #7ec8a0;
+    --str: #e8b96a;
+    --type: #6cb4ee;
+    --comment: #6b7a8d;
+    --border: #e2e0db;
+    --tab-active: #2d6a4f;
+    --tab-inactive: transparent;
+    --tab-text: #5c5a56;
+    --tab-text-active: #ffffff;
+    --tag-bg: #e9f5ec;
+    --tag-fg: #2d6a4f;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141517;
+      --surface: #1e2024;
+      --surface-alt: #282a2e;
+      --fg: #e0ddd8;
+      --fg-dim: #908d88;
+      --accent: #52b788;
+      --accent-light: #1a3a2a;
+      --code-bg: #0d1117;
+      --code-fg: #d4d2cd;
+      --kw: #7ec8a0;
+      --str: #e8b96a;
+      --type: #6cb4ee;
+      --comment: #546178;
+      --border: #2e3035;
+      --tab-active: #52b788;
+      --tab-inactive: transparent;
+      --tab-text: #908d88;
+      --tab-text-active: #0d1117;
+      --tag-bg: #1a3a2a;
+      --tag-fg: #7ec8a0;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141517;
+    --surface: #1e2024;
+    --surface-alt: #282a2e;
+    --fg: #e0ddd8;
+    --fg-dim: #908d88;
+    --accent: #52b788;
+    --accent-light: #1a3a2a;
+    --code-bg: #0d1117;
+    --code-fg: #d4d2cd;
+    --kw: #7ec8a0;
+    --str: #e8b96a;
+    --type: #6cb4ee;
+    --comment: #546178;
+    --border: #2e3035;
+    --tab-active: #52b788;
+    --tab-inactive: transparent;
+    --tab-text: #908d88;
+    --tab-text-active: #0d1117;
+    --tag-bg: #1a3a2a;
+    --tag-fg: #7ec8a0;
+    color-scheme: dark;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    padding-inline: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.25rem;
+    letter-spacing: -0.02em;
+  }
+  .subtitle {
+    color: var(--fg-dim);
+    font-size: 0.85rem;
+    margin: 0 0 1.2rem;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    padding: 8px 14px;
+    border: none;
+    background: var(--tab-inactive);
+    color: var(--tab-text);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .tab:hover { background: var(--surface-alt); }
+  .tab.active {
+    background: var(--tab-active);
+    color: var(--tab-text-active);
+  }
+
+  /* Sections */
+  .panel { display: none; padding-top: 1.2rem; }
+  .panel.active { display: block; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h3 .icon {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .card p, .card li {
+    font-size: 0.85rem;
+    color: var(--fg-dim);
+    margin: 4px 0;
+    line-height: 1.5;
+  }
+  .card ul { padding-left: 18px; margin: 6px 0; }
+
+  /* Code blocks */
+  pre {
+    background: var(--code-bg);
+    color: var(--code-fg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    padding: 12px 14px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 8px 0;
+  }
+  .kw { color: var(--kw); font-weight: 600; }
+  .str { color: var(--str); }
+  .tp { color: var(--type); }
+  .cm { color: var(--comment); font-style: italic; }
+
+  /* Inline code */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    background: var(--surface-alt);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  /* Table */
+  .ref-table {
+    width: 100%;
+    font-size: 0.82rem;
+    border-collapse: collapse;
+    margin: 8px 0;
+  }
+  .ref-table th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-dim);
+    padding: 6px 8px;
+    border-bottom: 2px solid var(--border);
+  }
+  .ref-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .ref-table td code {
+    font-size: 0.75rem;
+  }
+
+  /* Tip box */
+  .tip {
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    background: var(--accent-light);
+    border-radius: 0 8px 8px 0;
+    margin: 10px 0;
+    font-size: 0.82rem;
+    color: var(--fg);
+  }
+  .tip strong { color: var(--accent); }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .tab { padding: 7px 10px; font-size: 0.72rem; }
+    h1 { font-size: 1.35rem; }
+    pre { font-size: 0.7rem; padding: 10px 12px; }
+  }
+</style>
+
+<h1>Kotlin & Android — UD1</h1>
+<p class="subtitle">PMDM · Cheatsheet de referencia rápida</p>
+
+<div class="tabs" role="tablist">
+  <button class="tab active" data-tab="variables" role="tab">Variables</button>
+  <button class="tab" data-tab="tipos" role="tab">Tipos</button>
+  <button class="tab" data-tab="operadores" role="tab">Operadores</button>
+  <button class="tab" data-tab="control" role="tab">if / when</button>
+  <button class="tab" data-tab="funciones" role="tab">Funciones</button>
+  <button class="tab" data-tab="android" role="tab">Android</button>
+  <button class="tab" data-tab="xml" role="tab">XML</button>
+  <button class="tab" data-tab="controles" role="tab">CheckBox / Radio</button>
+  <button class="tab" data-tab="estilos" role="tab">Estilos</button>
+  <button class="tab" data-tab="binding" role="tab">View Binding</button>
+  <button class="tab" data-tab="errores" role="tab">Errores</button>
+</div>
+
+<!-- ═══════ VARIABLES ═══════ -->
+<div class="panel active" id="variables">
+  <div class="card">
+    <h3><span class="icon">1</span> val vs var</h3>
+    <p><code>val</code> no se puede reasignar. <code>var</code> sí se puede reasignar.</p>
+<pre><code><span class="kw">val</span> nombre: <span class="tp">String</span> = <span class="str">"Ana"</span>     <span class="cm">// no cambia</span>
+<span class="kw">var</span> intentos: <span class="tp">Int</span> = 0           <span class="cm">// puede cambiar</span>
+intentos = intentos + 1           <span class="cm">// OK</span>
+<span class="cm">// nombre = "Luis"              // ERROR: val no se reasigna</span></code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">2</span> Nombrar variables</h3>
+    <p>Empieza por letra o <code>_</code>. Sin espacios. Distingue mayúsculas: <code>edad</code> y <code>Edad</code> son distintas.</p>
+    <p>Convención: <code>nombreUsuario</code> para variables y funciones (camelCase), <code>NombreUsuario</code> para clases (PascalCase).</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">3</span> Plantillas de texto</h3>
+    <p><code>$variable</code> inserta el valor. <code>${expresión}</code> inserta el resultado de una expresión.</p>
+<pre><code><span class="kw">val</span> nombre = <span class="str">"Ana"</span>
+<span class="kw">val</span> edad = 22
+<span class="kw">val</span> saludo = <span class="str">"Hola, $nombre. Tienes ${edad + 1} años."</span></code></pre>
+  </div>
+</div>
+
+<!-- ═══════ TIPOS ═══════ -->
+<div class="panel" id="tipos">
+  <div class="card">
+    <h3><span class="icon">T</span> Los 4 tipos básicos</h3>
+    <table class="ref-table">
+      <tr><th>Tipo</th><th>Qué es</th><th>Ejemplo</th></tr>
+      <tr><td><code>String</code></td><td>Texto</td><td><code>"Hola"</code></td></tr>
+      <tr><td><code>Int</code></td><td>Entero</td><td><code>42</code></td></tr>
+      <tr><td><code>Double</code></td><td>Decimal</td><td><code>12.5</code></td></tr>
+      <tr><td><code>Boolean</code></td><td>Verdadero/Falso</td><td><code>true</code> / <code>false</code></td></tr>
+    </table>
+    <div class="tip"><strong>Ojo:</strong> <code>12</code> es Int, <code>12.0</code> es Double. <code>"12"</code> entre comillas es String.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">?</span> Tipos nullable</h3>
+    <p>Añadir <code>?</code> al tipo indica que puede ser <code>null</code> (ausencia de valor).</p>
+<pre><code><span class="kw">val</span> numero: <span class="tp">Int?</span> = <span class="str">"abc"</span>.toIntOrNull()  <span class="cm">// null (no es número)</span>
+<span class="kw">val</span> otro: <span class="tp">Double?</span> = <span class="str">"3.5"</span>.toDoubleOrNull() <span class="cm">// 3.5</span></code></pre>
+    <div class="tip"><strong>Regla:</strong> No puedes usar <code>&lt;</code>, <code>&gt;</code> etc. con un <code>Int?</code> directamente. Primero comprueba que no es null.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">→</span> Conversiones</h3>
+    <table class="ref-table">
+      <tr><th>Método</th><th>Hace</th></tr>
+      <tr><td><code>.toIntOrNull()</code></td><td>String → Int? (null si no es número)</td></tr>
+      <tr><td><code>.toDoubleOrNull()</code></td><td>String → Double? (null si no es número)</td></tr>
+      <tr><td><code>.toString()</code></td><td>Cualquier valor → String</td></tr>
+      <tr><td><code>.trim()</code></td><td>Quita espacios al inicio y final</td></tr>
+      <tr><td><code>.isEmpty()</code></td><td>true si el String está vacío</td></tr>
+      <tr><td><code>.length</code></td><td>Número de caracteres del String</td></tr>
+      <tr><td><code>.isNotEmpty()</code></td><td>true si el String tiene algo</td></tr>
+      <tr><td><code>.toDouble()</code></td><td>Int → Double (ej: <code>valor.toDouble()</code>)</td></tr>
+      <tr><td><code>.toInt()</code></td><td>Double → Int (corta los decimales: 3.9 → 3)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">€</span> Dos decimales</h3>
+    <p>Para mostrar importes con 2 decimales y coma española:</p>
+<pre><code><span class="kw">import</span> java.util.Locale
+
+<span class="kw">val</span> total = 12.5
+<span class="kw">val</span> texto = <span class="tp">String</span>.format(Locale(<span class="str">"es"</span>, <span class="str">"ES"</span>), <span class="str">"%.2f €"</span>, total)
+<span class="cm">// texto = "12,50 €"</span>
+
+<span class="cm">// Dentro de una plantilla:</span>
+tvResultado.text = <span class="str">"Total: ${String.format(Locale("es", "ES"), "%.2f", total)} €"</span></code></pre>
+    <div class="tip"><strong>Truco:</strong> crea una función para no repetirlo:<br><code>fun formato(valor: Double) = String.format(Locale("es", "ES"), "%.2f €", valor)</code></div>
+  </div>
+</div>
+
+<!-- ═══════ OPERADORES ═══════ -->
+<div class="panel" id="operadores">
+  <div class="card">
+    <h3><span class="icon">+</span> Aritméticos</h3>
+    <table class="ref-table">
+      <tr><th>Operador</th><th>Qué hace</th><th>Ejemplo</th></tr>
+      <tr><td><code>+</code></td><td>Suma</td><td><code>3 + 2</code> → 5</td></tr>
+      <tr><td><code>-</code></td><td>Resta</td><td><code>3 - 2</code> → 1</td></tr>
+      <tr><td><code>*</code></td><td>Multiplicación</td><td><code>3 * 2</code> → 6</td></tr>
+      <tr><td><code>/</code></td><td>División</td><td><code>7 / 2</code> → 3 (enteros!)</td></tr>
+      <tr><td><code>%</code></td><td>Resto</td><td><code>7 % 2</code> → 1</td></tr>
+    </table>
+    <div class="tip"><strong>Cuidado:</strong> División entre enteros da entero. Usa <code>9.0 / 5.0</code> para obtener decimales.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">==</span> Comparación</h3>
+    <table class="ref-table">
+      <tr><th>Operador</th><th>Significa</th></tr>
+      <tr><td><code>==</code></td><td>Igual a</td></tr>
+      <tr><td><code>!=</code></td><td>Distinto de</td></tr>
+      <tr><td><code>&lt;</code></td><td>Menor que</td></tr>
+      <tr><td><code>&gt;</code></td><td>Mayor que</td></tr>
+      <tr><td><code>&lt;=</code></td><td>Menor o igual</td></tr>
+      <tr><td><code>&gt;=</code></td><td>Mayor o igual</td></tr>
+    </table>
+    <p>El resultado siempre es un <code>Boolean</code> (<code>true</code> o <code>false</code>).</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">&amp;</span> Lógicos</h3>
+    <table class="ref-table">
+      <tr><th>Operador</th><th>Significa</th><th>Uso</th></tr>
+      <tr><td><code>&&</code></td><td>Y (AND)</td><td>Ambas condiciones deben ser true</td></tr>
+      <tr><td><code>||</code></td><td>O (OR)</td><td>Basta con que una sea true</td></tr>
+      <tr><td><code>!</code></td><td>NO (NOT)</td><td>Invierte el valor</td></tr>
+    </table>
+<pre><code><span class="kw">if</span> (edad >= 18 && edad <= 65) { <span class="cm">// ambas se cumplen</span> }
+<span class="kw">if</span> (num == <span class="kw">null</span> || num < 0) {  <span class="cm">// basta una</span> }</code></pre>
+    <div class="tip"><strong>Precedencia:</strong> <code>&&</code> se evalúa antes que <code>||</code>. Si mezclas, usa paréntesis: <code>(a || b) && c</code>.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">÷</span> División entera: redondear hacia arriba</h3>
+    <p>Entre dos <code>Int</code>, <code>/</code> corta los decimales. Truco para contar tramos empezados (cada hora iniciada cuenta entera):</p>
+<pre><code><span class="kw">val</span> minutos = 61
+<span class="kw">val</span> horas = (minutos + 59) / 60   <span class="cm">// 2 (Int / Int)</span>
+
+<span class="cm">// 60 → 1 · 61 → 2 · 120 → 2 · 121 → 3</span></code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">%</span> Porcentajes</h3>
+<pre><code><span class="kw">val</span> recargo   = subtotal * 0.20       <span class="cm">// el 20 % de subtotal</span>
+<span class="kw">val</span> conRecargo = subtotal * 1.20     <span class="cm">// subtotal + 20 %</span>
+<span class="kw">val</span> descuento = total * 0.10          <span class="cm">// el 10 % de total</span>
+<span class="kw">val</span> conDesc   = total * 0.90          <span class="cm">// total - 10 %</span>
+<span class="kw">val</span> conIva    = base * 1.21           <span class="cm">// base + 21 % IVA</span></code></pre>
+    <div class="tip"><strong>El orden importa:</strong> si dice "aplica X y DESPUÉS Y", calcula X primero y usa ese resultado para Y.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">..</span> Rangos con in / !in</h3>
+    <p><code>a..b</code> incluye ambos extremos. Sirve para validar rápido.</p>
+<pre><code><span class="kw">if</span> (valor <span class="kw">in</span> 1..10) { <span class="cm">// entre 1 y 10, ambos incluidos</span> }
+<span class="kw">if</span> (valor !<span class="kw">in</span> 1..10) { <span class="cm">// fuera del rango</span> }
+
+<span class="cm">// Con Double también vale:</span>
+<span class="kw">if</span> (numero !<span class="kw">in</span> 0.0..10.0) { tvResultado.text = <span class="str">"Fuera de rango"</span> }</code></pre>
+  </div>
+</div>
+
+<!-- ═══════ CONTROL ═══════ -->
+<div class="panel" id="control">
+  <div class="card">
+    <h3><span class="icon">?:</span> if / else if / else</h3>
+    <p>Ejecuta un bloque según una condición Boolean.</p>
+<pre><code><span class="kw">if</span> (edadNum == <span class="kw">null</span> || edadNum < 0 || edadNum > 120) {
+    resultado.text = <span class="str">"Edad no válida"</span>
+} <span class="kw">else if</span> (edadNum < 18) {
+    resultado.text = <span class="str">"Menor de edad"</span>
+} <span class="kw">else if</span> (edadNum > 65) {
+    resultado.text = <span class="str">"Mayor de 65"</span>
+} <span class="kw">else</span> {
+    resultado.text = <span class="str">"Acceso permitido"</span>
+}</code></pre>
+    <div class="tip"><strong>Siempre:</strong> comprueba <code>null</code> primero con <code>||</code>. Si es null, Kotlin no evalúa el resto.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">W</span> when</h3>
+    <p>Elige entre varios casos. Se detiene en el primero que coincide.</p>
+<pre><code><span class="kw">val</span> calificacion = <span class="kw">when</span> (notaNum) {
+    <span class="kw">in</span> 0..4   -> <span class="str">"Suspenso"</span>
+    5, 6      -> <span class="str">"Aprobado"</span>
+    7, 8      -> <span class="str">"Notable"</span>
+    9, 10     -> <span class="str">"Sobresaliente"</span>
+    <span class="kw">else</span>      -> <span class="str">"No válida"</span>
+}</code></pre>
+    <p>También sirve para elegir operación:</p>
+<pre><code><span class="kw">val</span> valor = <span class="kw">when</span> (operacion) {
+    <span class="str">"+"</span> -> a + b
+    <span class="str">"-"</span> -> a - b
+    <span class="str">"*"</span> -> a * b
+    <span class="str">"/"</span> -> a / b
+    <span class="kw">else</span> -> <span class="kw">return</span>
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">W</span> when SIN argumento (con condiciones)</h3>
+    <p>Para usar <code>&lt;</code>, <code>&gt;</code>, <code>&&</code>, <code>||</code>... quita el paréntesis del <code>when</code>. Cada rama es una condición.</p>
+<pre><code><span class="kw">val</span> estado = <span class="kw">when</span> {
+    valor < 0.0  -> <span class="str">"Negativo"</span>
+    valor == 0.0 -> <span class="str">"Cero"</span>
+    <span class="kw">else</span>         -> <span class="str">"Positivo"</span>
+}
+
+<span class="cm">// Condiciones ordenadas: basta con el límite superior</span>
+<span class="kw">val</span> categoria = <span class="kw">when</span> {
+    numero < 5 -> <span class="str">"Bajo"</span>
+    numero < 7 -> <span class="str">"Medio"</span>
+    numero < 9 -> <span class="str">"Alto"</span>
+    <span class="kw">else</span>       -> <span class="str">"Máximo"</span>
+}</code></pre>
+    <table class="ref-table">
+      <tr><th>Usa</th><th>Cuando</th></tr>
+      <tr><td><code>when (variable)</code></td><td>Comparas con valores concretos o rangos: <code>5, 6 -></code>, <code>in 1..3 -></code>, <code>"+" -></code></td></tr>
+      <tr><td><code>when { }</code></td><td>Necesitas condiciones: <code>&lt;</code>, <code>&gt;</code>, <code>&&</code>, <code>||</code></td></tr>
+    </table>
+    <div class="tip"><strong>Si asignas el when a un val</strong>, necesita <code>else</code> obligatoriamente.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">=</span> if como expresión</h3>
+    <p><code>if</code> también puede devolver un valor (como un operador ternario).</p>
+<pre><code><span class="kw">val</span> mensaje = <span class="kw">if</span> (numero >= 5) <span class="str">"Superado"</span> <span class="kw">else</span> <span class="str">"No superado"</span>
+
+<span class="kw">val</span> extra = <span class="kw">if</span> (cbOpcion.isChecked) 4.0 <span class="kw">else</span> 0.0
+
+tvResultado.text = <span class="kw">if</span> (texto.isEmpty()) {
+    <span class="str">"Campo obligatorio"</span>
+} <span class="kw">else</span> {
+    <span class="str">"Hola, $texto"</span>
+}</code></pre>
+  </div>
+</div>
+
+<!-- ═══════ FUNCIONES ═══════ -->
+<div class="panel" id="funciones">
+  <div class="card">
+    <h3><span class="icon">fn</span> Anatomía de una función</h3>
+<pre><code><span class="cm">//  nombre         parámetro       tipo retorno</span>
+<span class="cm">//    ↓               ↓               ↓</span>
+<span class="kw">fun</span> celsiusAFahrenheit(celsius: <span class="tp">Double</span>): <span class="tp">Double</span> {
+    <span class="kw">val</span> resultado = ((celsius * 9) / 5) + 32
+    <span class="kw">return</span> resultado   <span class="cm">// ← lo que devuelve</span>
+}</code></pre>
+    <table class="ref-table">
+      <tr><th>Pieza</th><th>Qué es</th></tr>
+      <tr><td><code>fun</code></td><td>Palabra clave para declarar función</td></tr>
+      <tr><td><code>celsius: Double</code></td><td>Parámetro: dato que recibe (nombre: Tipo)</td></tr>
+      <tr><td><code>: Double</code> tras <code>()</code></td><td>Tipo del valor que devuelve</td></tr>
+      <tr><td><code>return</code></td><td>Devuelve el resultado y sale de la función</td></tr>
+      <tr><td><code>private</code></td><td>Solo accesible dentro de la misma clase</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">→</span> Llamar a una función</h3>
+<pre><code><span class="cm">// Se llama pasando un argumento (el valor real)</span>
+<span class="kw">val</span> f = celsiusAFahrenheit(25.0)  <span class="cm">// f = 77.0</span>
+
+<span class="cm">// Dentro de un string template</span>
+resultado.text = <span class="str">"${celsiusAFahrenheit(100.0)} ºF"</span></code></pre>
+    <div class="tip"><strong>Parámetro</strong> = la variable en la definición. <strong>Argumento</strong> = el valor que pasas al llamar.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">∅</span> Función sin retorno</h3>
+    <p>Si solo realiza una acción (mostrar un Log, por ejemplo), no necesita tipo de retorno ni <code>return</code>.</p>
+<pre><code><span class="kw">private fun</span> mostrarMensaje(texto: <span class="tp">String</span>) {
+    Log.d(<span class="str">"PMDM"</span>, texto)
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">!</span> return sin valor</h3>
+    <p>Dentro de un listener o función local, <code>return</code> sin valor detiene la ejecución (como un "para aquí").</p>
+<pre><code><span class="kw">fun</span> calcular(op: <span class="tp">String</span>) {
+    <span class="kw">val</span> a = entrada1.text.toString().toDoubleOrNull()
+    <span class="kw">if</span> (a == <span class="kw">null</span>) {
+        salida.text = <span class="str">"Número no válido"</span>
+        <span class="kw">return</span>  <span class="cm">// para aquí, no sigue calculando</span>
+    }
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">@</span> return dentro de setOnClickListener</h3>
+    <p>Dentro del <code>{ }</code> de un listener, un <code>return</code> solo NO compila. Hay que poner la etiqueta:</p>
+<pre><code>btnCalcular.setOnClickListener {
+    <span class="kw">val</span> numero = etCampo1.text.toString().toIntOrNull()
+    <span class="kw">if</span> (numero == <span class="kw">null</span>) {
+        tvResultado.text = <span class="str">"Dato no válido"</span>
+        <span class="kw">return@setOnClickListener</span>   <span class="cm">// sale del listener</span>
+    }
+    <span class="cm">// aquí numero ya no es null</span>
+}</code></pre>
+    <div class="tip"><strong>Alternativa:</strong> usar <code>if / else if / else</code> y meter el cálculo en el <code>else</code> final, sin <code>return</code>.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">?</span> Función que puede devolver null</h3>
+    <p>Pon <code>?</code> en el tipo de retorno. Útil cuando la operación puede no tener resultado.</p>
+<pre><code><span class="kw">private fun</span> dividir(a: <span class="tp">Double</span>, b: <span class="tp">Double</span>): <span class="tp">Double?</span> {
+    <span class="kw">if</span> (b == 0.0) <span class="kw">return null</span>
+    <span class="kw">return</span> a / b
+}
+
+<span class="kw">val</span> resultado = dividir(10.0, 0.0)
+tvResultado.text = <span class="kw">if</span> (resultado == <span class="kw">null</span>) <span class="str">"No se puede dividir entre cero"</span>
+                   <span class="kw">else</span> <span class="str">"Resultado: $resultado"</span></code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">P</span> Funciones de cálculo "puras"</h3>
+    <p>Reciben números y devuelven un resultado. <strong>No tocan los EditText ni los TextView</strong>: eso se hace en el listener.</p>
+<pre><code><span class="cm">// ✅ Recibe datos, devuelve resultado</span>
+<span class="kw">fun</span> calcularTotal(base: <span class="tp">Double</span>, extra: <span class="tp">Double</span>, conRecargo: <span class="tp">Boolean</span>): <span class="tp">Double</span> {
+    <span class="kw">val</span> subtotal = base + extra
+    <span class="kw">return if</span> (conRecargo) subtotal * 1.20 <span class="kw">else</span> subtotal
+}
+
+<span class="cm">// En el listener: leer → validar → llamar → mostrar</span>
+btnCalcular.setOnClickListener {
+    <span class="kw">val</span> base = etCampo1.text.toString().toDoubleOrNull()
+    <span class="kw">val</span> extra = etCampo2.text.toString().toDoubleOrNull()
+    <span class="kw">if</span> (base == <span class="kw">null</span> || extra == <span class="kw">null</span> || base < 0 || extra < 0) {
+        tvResultado.text = <span class="str">"Datos no válidos"</span>
+    } <span class="kw">else</span> {
+        <span class="kw">val</span> total = calcularTotal(base, extra, cbOpcion.isChecked)
+        tvResultado.text = <span class="str">"Total: $total"</span>
+    }
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">2</span> Tarifa por tramos (solo el exceso)</h3>
+    <p>Cuando los primeros X van a un precio y el resto a otro, el precio caro solo se aplica a lo que sobra:</p>
+<pre><code><span class="kw">fun</span> costeTramos(cantidad: <span class="tp">Double</span>): <span class="tp">Double</span> {
+    <span class="kw">return if</span> (cantidad <= 100) {
+        cantidad * 0.12
+    } <span class="kw">else</span> {
+        100 * 0.12 + (cantidad - 100) * 0.18
+    }
+}</code></pre>
+  </div>
+</div>
+
+<!-- ═══════ ANDROID ═══════ -->
+<div class="panel" id="android">
+  <div class="card">
+    <h3><span class="icon">A</span> Estructura de MainActivity</h3>
+<pre><code><span class="kw">package</span> com.example.myapplication
+
+<span class="kw">import</span> android.os.Bundle
+<span class="kw">import</span> android.util.Log
+<span class="kw">import</span> android.widget.Button
+<span class="kw">import</span> android.widget.EditText
+<span class="kw">import</span> android.widget.TextView
+<span class="kw">import</span> androidx.appcompat.app.AppCompatActivity
+
+<span class="kw">class</span> <span class="tp">MainActivity</span> : AppCompatActivity() {
+    <span class="kw">override fun</span> onCreate(savedInstanceState: Bundle?) {
+        <span class="kw">super</span>.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        <span class="cm">// Tu código va AQUÍ DEBAJO</span>
+    }
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">🔍</span> Buscar vistas</h3>
+    <p><code>findViewById&lt;Tipo&gt;(R.id.identificador)</code> busca el elemento del XML por su <code>android:id</code>.</p>
+<pre><code><span class="kw">val</span> edad     = findViewById&lt;<span class="tp">EditText</span>&gt;(R.id.etEdad)
+<span class="kw">val</span> resultado = findViewById&lt;<span class="tp">TextView</span>&gt;(R.id.tvResultado)
+<span class="kw">val</span> boton    = findViewById&lt;<span class="tp">Button</span>&gt;(R.id.btnComprobar)</code></pre>
+    <div class="tip"><strong>Siempre</strong> después de <code>setContentView(...)</code>, nunca antes.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">👆</span> Eventos de clic</h3>
+<pre><code>boton.setOnClickListener {
+    <span class="cm">// Este código se ejecuta al pulsar el botón</span>
+    <span class="kw">val</span> texto = edad<span class="str">.text.toString()</span>  <span class="cm">// leer EditText</span>
+    resultado.text = <span class="str">"Hola"</span>       <span class="cm">// escribir TextView</span>
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">📖</span> Leer y escribir</h3>
+    <table class="ref-table">
+      <tr><th>Acción</th><th>Código</th></tr>
+      <tr><td>Leer EditText</td><td><code>miEditText.text.toString()</code></td></tr>
+      <tr><td>Escribir TextView</td><td><code>miTextView.text = "texto"</code></td></tr>
+      <tr><td>Log de depuración</td><td><code>Log.d("PMDM", "mensaje")</code></td></tr>
+    </table>
+    <div class="tip"><strong>Error común:</strong> <code>miEditText.toString()</code> devuelve el objeto, no el texto. Siempre <code>.text.toString()</code>.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">📂</span> Archivos clave</h3>
+    <table class="ref-table">
+      <tr><th>Archivo</th><th>Qué hace</th></tr>
+      <tr><td><code>MainActivity.kt</code></td><td>Lógica Kotlin: responde a lo que hace el usuario</td></tr>
+      <tr><td><code>activity_main.xml</code></td><td>Diseño XML: posición y propiedades de las vistas</td></tr>
+      <tr><td><code>strings.xml</code></td><td>Textos reutilizables de la interfaz</td></tr>
+      <tr><td><code>AndroidManifest.xml</code></td><td>Info de la app (nombre, permisos, activities)</td></tr>
+      <tr><td><code>res/values/colors.xml</code></td><td>Colores con nombre</td></tr>
+      <tr><td><code>res/values/styles.xml</code></td><td>Estilos reutilizables (lo creas tú)</td></tr>
+      <tr><td><code>res/drawable/*.xml</code></td><td>Fondos y formas (esquinas redondeadas...)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">+1</span> Valor que se mantiene entre pulsaciones</h3>
+    <p>Declara el <code>var</code> en <code>onCreate</code> <strong>FUERA</strong> del listener. Si lo pones dentro, vuelve a empezar en cada clic.</p>
+<pre><code><span class="kw">var</span> contador = 0             <span class="cm">// fuera: recuerda el valor</span>
+<span class="kw">var</span> disponibles = 20         <span class="cm">// fuera: recuerda el valor</span>
+
+btnAccion.setOnClickListener {
+    contador++                  <span class="cm">// o contador = contador + 1</span>
+    <span class="kw">val</span> pedidos = etCampo1.text.toString().toIntOrNull()
+    <span class="kw">if</span> (pedidos == <span class="kw">null</span> || pedidos > disponibles) {
+        tvResultado.text = <span class="str">"No hay suficientes"</span>  <span class="cm">// NO restamos</span>
+    } <span class="kw">else</span> {
+        disponibles -= pedidos   <span class="cm">// solo si todo es válido</span>
+        tvResultado.text = <span class="str">"Quedan $disponibles"</span>
+    }
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⌫</span> Limpiar campos (botón Limpiar)</h3>
+<pre><code>btnLimpiar.setOnClickListener {
+    etCampo1.text.clear()          <span class="cm">// vacía un EditText</span>
+    etCampo2.setText(<span class="str">""</span>)            <span class="cm">// otra forma</span>
+    cbOpcion.isChecked = <span class="kw">false</span>     <span class="cm">// desmarca CheckBox</span>
+    rgOpciones.clearCheck()        <span class="cm">// quita selección del RadioGroup</span>
+    tvResultado.text = <span class="str">"Introduce los datos"</span>  <span class="cm">// texto inicial</span>
+}</code></pre>
+    <div class="tip"><strong>Ojo:</strong> limpiar NO tiene que reiniciar los contadores (<code>var</code>) salvo que lo pida el enunciado.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">🎨</span> Cambiar color de un TextView desde Kotlin</h3>
+<pre><code><span class="kw">import</span> android.graphics.Color
+<span class="kw">import</span> androidx.core.content.ContextCompat
+
+<span class="cm">// Color predefinido</span>
+tvEstado.setTextColor(Color.RED)
+tvEstado.setTextColor(Color.parseColor(<span class="str">"#2E7D32"</span>))
+
+<span class="cm">// Color de colors.xml</span>
+tvEstado.setTextColor(ContextCompat.getColor(<span class="kw">this</span>, R.color.miColor))
+
+<span class="cm">// Según el resultado</span>
+tvEstado.setTextColor(<span class="kw">if</span> (superado) Color.GREEN <span class="kw">else</span> Color.RED)</code></pre>
+    <p>Predefinidos: <code>Color.RED</code>, <code>Color.GREEN</code>, <code>Color.BLUE</code>, <code>Color.BLACK</code>, <code>Color.GRAY</code>.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⤒</span> Topes y mínimos</h3>
+<pre><code><span class="cm">// No pasar de un máximo</span>
+<span class="kw">val</span> cobrado = minOf(importe, 15.0)    <span class="cm">// el menor de los dos</span>
+<span class="cm">// No bajar de un mínimo (ej: no negativo)</span>
+<span class="kw">val</span> final = maxOf(importe - 2.0, 0.0)
+
+<span class="cm">// Lo mismo con if:</span>
+<span class="kw">val</span> cobrado2 = <span class="kw">if</span> (importe > 15.0) 15.0 <span class="kw">else</span> importe</code></pre>
+  </div>
+</div>
+
+<!-- ═══════ XML ═══════ -->
+<div class="panel" id="xml">
+  <div class="card">
+    <h3><span class="icon">X</span> Estructura básica XML</h3>
+<pre><code><span class="cm">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="kw">&lt;LinearLayout</span>
+    xmlns:android=<span class="str">"http://schemas.android.com/apk/res/android"</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"match_parent"</span>
+    android:orientation=<span class="str">"vertical"</span>
+    android:padding=<span class="str">"24dp"</span><span class="kw">&gt;</span>
+
+    <span class="cm">&lt;!-- Vistas aquí dentro --&gt;</span>
+
+<span class="kw">&lt;/LinearLayout&gt;</span></code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">V</span> Vistas principales</h3>
+    <table class="ref-table">
+      <tr><th>Vista</th><th>Para qué</th></tr>
+      <tr><td><code>EditText</code></td><td>Campo donde el usuario escribe</td></tr>
+      <tr><td><code>TextView</code></td><td>Muestra texto (no editable)</td></tr>
+      <tr><td><code>Button</code></td><td>Botón que el usuario pulsa</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">id</span> Convención de nombres para ids</h3>
+    <p>Se usa un prefijo corto que indica el tipo de vista, seguido del nombre descriptivo en camelCase.</p>
+    <table class="ref-table">
+      <tr><th>Prefijo</th><th>Tipo de vista</th><th>Ejemplo</th></tr>
+      <tr><td><code>et</code></td><td><strong>E</strong>dit<strong>T</strong>ext</td><td><code>etNombre</code>, <code>etEdad</code></td></tr>
+      <tr><td><code>tv</code></td><td><strong>T</strong>ext<strong>V</strong>iew</td><td><code>tvResultado</code></td></tr>
+      <tr><td><code>btn</code></td><td><strong>B</strong>u<strong>t</strong>to<strong>n</strong></td><td><code>btnComprobar</code>, <code>btnCtoF</code></td></tr>
+    </table>
+    <div class="tip"><strong>No es obligatorio</strong>, pero te permite saber qué tipo de vista es sin mirar el XML.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">@</span> Propiedades XML</h3>
+    <table class="ref-table">
+      <tr><th>Propiedad</th><th>Qué hace</th></tr>
+      <tr><td><code>android:id="@+id/etEdad"</code></td><td>Crea un identificador para usar en Kotlin</td></tr>
+      <tr><td><code>layout_width</code></td><td><code>match_parent</code> (todo el ancho) o <code>wrap_content</code> (ajustar)</td></tr>
+      <tr><td><code>layout_height</code></td><td>Igual que width pero en alto</td></tr>
+      <tr><td><code>android:text</code></td><td>Texto que se muestra</td></tr>
+      <tr><td><code>android:hint</code></td><td>Texto gris de sugerencia (placeholder)</td></tr>
+      <tr><td><code>android:inputType</code></td><td>Tipo de teclado: <code>number</code>, <code>numberDecimal</code>, <code>textPersonName</code></td></tr>
+      <tr><td><code>android:textSize</code></td><td>Tamaño del texto, ej: <code>"20sp"</code></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">E</span> Ejemplo: un EditText</h3>
+<pre><code><span class="kw">&lt;EditText</span>
+    android:id=<span class="str">"@+id/etTemperatura"</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"wrap_content"</span>
+    android:hint=<span class="str">"Introduce temperatura"</span>
+    android:inputType=<span class="str">"numberDecimal|numberSigned"</span> <span class="kw">/&gt;</span></code></pre>
+    <table class="ref-table">
+      <tr><th>inputType</th><th>Para</th></tr>
+      <tr><td><code>number</code></td><td>Enteros positivos</td></tr>
+      <tr><td><code>numberDecimal</code></td><td>Decimales positivos</td></tr>
+      <tr><td><code>numberDecimal|numberSigned</code></td><td>Decimales con negativos</td></tr>
+      <tr><td><code>text</code> / <code>textPersonName</code></td><td>Texto / nombres</td></tr>
+      <tr><td><code>textCapCharacters</code></td><td>Texto en mayúsculas (códigos)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⧉</span> Plantillas para copiar</h3>
+    <p>Sin estilos: se pueden pegar directamente dentro del LinearLayout. Cambia el id, el hint y el texto.</p>
+
+    <p><strong>EditText de texto</strong></p>
+<pre><code><span class="kw">&lt;EditText</span>
+    android:id=<span class="str">"@+id/etCampo1"</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"wrap_content"</span>
+    android:hint=<span class="str">"Escribe aquí"</span>
+    android:inputType=<span class="str">"text"</span> <span class="kw">/&gt;</span></code></pre>
+
+    <p><strong>EditText de número</strong> (<code>number</code> = entero, <code>numberDecimal</code> = decimal)</p>
+<pre><code><span class="kw">&lt;EditText</span>
+    android:id=<span class="str">"@+id/etCampo2"</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"wrap_content"</span>
+    android:hint=<span class="str">"Número"</span>
+    android:inputType=<span class="str">"numberDecimal"</span> <span class="kw">/&gt;</span></code></pre>
+
+    <p><strong>TextView de título</strong> (no necesita id)</p>
+<pre><code><span class="kw">&lt;TextView</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"wrap_content"</span>
+    android:layout_marginBottom=<span class="str">"16dp"</span>
+    android:text=<span class="str">"Título de la app"</span>
+    android:textSize=<span class="str">"24sp"</span>
+    android:textStyle=<span class="str">"bold"</span> <span class="kw">/&gt;</span></code></pre>
+
+    <p><strong>TextView de resultado</strong></p>
+<pre><code><span class="kw">&lt;TextView</span>
+    android:id=<span class="str">"@+id/tvResultado"</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"wrap_content"</span>
+    android:layout_marginTop=<span class="str">"16dp"</span>
+    android:padding=<span class="str">"16dp"</span>
+    android:text=<span class="str">"Introduce los datos"</span>
+    android:textSize=<span class="str">"18sp"</span> <span class="kw">/&gt;</span></code></pre>
+
+    <p><strong>Button</strong></p>
+<pre><code><span class="kw">&lt;Button</span>
+    android:id=<span class="str">"@+id/btnAccion"</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"wrap_content"</span>
+    android:layout_marginTop=<span class="str">"8dp"</span>
+    android:text=<span class="str">"Aceptar"</span> <span class="kw">/&gt;</span></code></pre>
+
+    <p><strong>Dos botones uno al lado del otro</strong> (mitad y mitad)</p>
+<pre><code><span class="kw">&lt;LinearLayout</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"wrap_content"</span>
+    android:orientation=<span class="str">"horizontal"</span><span class="kw">&gt;</span>
+
+    <span class="kw">&lt;Button</span>
+        android:id=<span class="str">"@+id/btnAccion1"</span>
+        android:layout_width=<span class="str">"0dp"</span>
+        android:layout_height=<span class="str">"wrap_content"</span>
+        android:layout_weight=<span class="str">"1"</span>
+        android:text=<span class="str">"Aceptar"</span> <span class="kw">/&gt;</span>
+
+    <span class="kw">&lt;Button</span>
+        android:id=<span class="str">"@+id/btnAccion2"</span>
+        android:layout_width=<span class="str">"0dp"</span>
+        android:layout_height=<span class="str">"wrap_content"</span>
+        android:layout_weight=<span class="str">"1"</span>
+        android:layout_marginStart=<span class="str">"8dp"</span>
+        android:text=<span class="str">"Limpiar"</span> <span class="kw">/&gt;</span>
+<span class="kw">&lt;/LinearLayout&gt;</span></code></pre>
+    <div class="tip"><strong>Con layout_weight</strong> el ancho va a <code>0dp</code>: el peso decide cuánto ocupa cada uno.</div>
+
+    <p><strong>Pantalla completa</strong> (activity_main.xml entero)</p>
+<pre><code><span class="cm">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="kw">&lt;ScrollView</span> xmlns:android=<span class="str">"http://schemas.android.com/apk/res/android"</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"match_parent"</span><span class="kw">&gt;</span>
+
+    <span class="kw">&lt;LinearLayout</span>
+        android:layout_width=<span class="str">"match_parent"</span>
+        android:layout_height=<span class="str">"wrap_content"</span>
+        android:orientation=<span class="str">"vertical"</span>
+        android:padding=<span class="str">"24dp"</span><span class="kw">&gt;</span>
+
+        <span class="kw">&lt;TextView</span>
+            android:layout_width=<span class="str">"match_parent"</span>
+            android:layout_height=<span class="str">"wrap_content"</span>
+            android:layout_marginBottom=<span class="str">"16dp"</span>
+            android:text=<span class="str">"Título de la app"</span>
+            android:textSize=<span class="str">"24sp"</span>
+            android:textStyle=<span class="str">"bold"</span> <span class="kw">/&gt;</span>
+
+        <span class="kw">&lt;EditText</span>
+            android:id=<span class="str">"@+id/etCampo1"</span>
+            android:layout_width=<span class="str">"match_parent"</span>
+            android:layout_height=<span class="str">"wrap_content"</span>
+            android:hint=<span class="str">"Texto"</span>
+            android:inputType=<span class="str">"text"</span> <span class="kw">/&gt;</span>
+
+        <span class="kw">&lt;EditText</span>
+            android:id=<span class="str">"@+id/etCampo2"</span>
+            android:layout_width=<span class="str">"match_parent"</span>
+            android:layout_height=<span class="str">"wrap_content"</span>
+            android:hint=<span class="str">"Número"</span>
+            android:inputType=<span class="str">"numberDecimal"</span> <span class="kw">/&gt;</span>
+
+        <span class="kw">&lt;CheckBox</span>
+            android:id=<span class="str">"@+id/cbOpcion"</span>
+            android:layout_width=<span class="str">"wrap_content"</span>
+            android:layout_height=<span class="str">"wrap_content"</span>
+            android:text=<span class="str">"Opción extra"</span> <span class="kw">/&gt;</span>
+
+        <span class="kw">&lt;RadioGroup</span>
+            android:id=<span class="str">"@+id/rgOpciones"</span>
+            android:layout_width=<span class="str">"match_parent"</span>
+            android:layout_height=<span class="str">"wrap_content"</span>
+            android:orientation=<span class="str">"horizontal"</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;RadioButton</span>
+                android:id=<span class="str">"@+id/rbOpcion1"</span>
+                android:layout_width=<span class="str">"wrap_content"</span>
+                android:layout_height=<span class="str">"wrap_content"</span>
+                android:text=<span class="str">"Opción 1"</span> <span class="kw">/&gt;</span>
+            <span class="kw">&lt;RadioButton</span>
+                android:id=<span class="str">"@+id/rbOpcion2"</span>
+                android:layout_width=<span class="str">"wrap_content"</span>
+                android:layout_height=<span class="str">"wrap_content"</span>
+                android:text=<span class="str">"Opción 2"</span> <span class="kw">/&gt;</span>
+        <span class="kw">&lt;/RadioGroup&gt;</span>
+
+        <span class="kw">&lt;Button</span>
+            android:id=<span class="str">"@+id/btnCalcular"</span>
+            android:layout_width=<span class="str">"match_parent"</span>
+            android:layout_height=<span class="str">"wrap_content"</span>
+            android:layout_marginTop=<span class="str">"8dp"</span>
+            android:text=<span class="str">"Calcular"</span> <span class="kw">/&gt;</span>
+
+        <span class="kw">&lt;Button</span>
+            android:id=<span class="str">"@+id/btnLimpiar"</span>
+            android:layout_width=<span class="str">"match_parent"</span>
+            android:layout_height=<span class="str">"wrap_content"</span>
+            android:text=<span class="str">"Limpiar"</span> <span class="kw">/&gt;</span>
+
+        <span class="kw">&lt;TextView</span>
+            android:id=<span class="str">"@+id/tvResultado"</span>
+            android:layout_width=<span class="str">"match_parent"</span>
+            android:layout_height=<span class="str">"wrap_content"</span>
+            android:layout_marginTop=<span class="str">"16dp"</span>
+            android:padding=<span class="str">"16dp"</span>
+            android:text=<span class="str">"Introduce los datos"</span>
+            android:textSize=<span class="str">"18sp"</span> <span class="kw">/&gt;</span>
+
+    <span class="kw">&lt;/LinearLayout&gt;</span>
+<span class="kw">&lt;/ScrollView&gt;</span></code></pre>
+    <div class="tip"><strong>Borra lo que no uses</strong> (CheckBox, RadioGroup...) y duplica lo que necesites más veces. Cada id tiene que ser distinto.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">✦</span> Extras útiles de aspecto</h3>
+    <table class="ref-table">
+      <tr><th>Propiedad</th><th>Qué hace</th></tr>
+      <tr><td><code>android:backgroundTint="@color/miColor"</code></td><td>Color de un <strong>Button</strong>. En Button, <code>android:background</code> no funciona por el tema de Material</td></tr>
+      <tr><td><code>android:gravity="center"</code></td><td>Centra el contenido dentro de la vista</td></tr>
+      <tr><td><code>android:layout_weight="1"</code></td><td>Reparte el espacio en un LinearLayout (con ancho <code>0dp</code>)</td></tr>
+      <tr><td><code>android:hint="@string/nombre"</code></td><td>Texto sacado de <code>strings.xml</code>. Si el nombre no existe allí, da error</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">↕</span> ScrollView (pantallas largas)</h3>
+    <p>Hace que la pantalla se pueda desplazar. Solo puede tener <strong>UN hijo directo</strong>, normalmente un LinearLayout.</p>
+<pre><code><span class="cm">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="kw">&lt;ScrollView</span>
+    xmlns:android=<span class="str">"http://schemas.android.com/apk/res/android"</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"match_parent"</span><span class="kw">&gt;</span>
+
+    <span class="kw">&lt;LinearLayout</span>
+        android:layout_width=<span class="str">"match_parent"</span>
+        android:layout_height=<span class="str">"wrap_content"</span>
+        android:orientation=<span class="str">"vertical"</span>
+        android:padding=<span class="str">"24dp"</span><span class="kw">&gt;</span>
+
+        <span class="cm">&lt;!-- TODAS las vistas aquí --&gt;</span>
+
+    <span class="kw">&lt;/LinearLayout&gt;</span>
+<span class="kw">&lt;/ScrollView&gt;</span></code></pre>
+    <div class="tip"><strong>Ojo:</strong> el <code>xmlns:android=...</code> va solo en la etiqueta raíz (la de fuera). El LinearLayout interior lleva <code>layout_height="wrap_content"</code>.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">dp</span> Medidas y espacios</h3>
+    <table class="ref-table">
+      <tr><th>Cosa</th><th>Qué es</th></tr>
+      <tr><td><code>dp</code></td><td>Tamaños, márgenes, padding</td></tr>
+      <tr><td><code>sp</code></td><td>Tamaño de letra (<code>textSize</code>)</td></tr>
+      <tr><td><code>android:padding</code></td><td>Espacio DENTRO de la vista (entre borde y contenido)</td></tr>
+      <tr><td><code>android:layout_marginTop</code> / <code>Bottom</code></td><td>Espacio FUERA, entre una vista y otra</td></tr>
+      <tr><td><code>android:textStyle="bold"</code></td><td>Negrita</td></tr>
+      <tr><td><code>android:textColor="@color/miColor"</code></td><td>Color del texto</td></tr>
+      <tr><td><code>android:background="@drawable/fondo"</code></td><td>Fondo de la vista</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════ CONTROLES ═══════ -->
+<div class="panel" id="controles">
+  <div class="card">
+    <h3><span class="icon">☑</span> CheckBox (sí / no)</h3>
+    <p>Una casilla que se marca o desmarca. Prefijo de id: <code>cb</code>.</p>
+<pre><code><span class="kw">&lt;CheckBox</span>
+    android:id=<span class="str">"@+id/cbOpcion"</span>
+    android:layout_width=<span class="str">"wrap_content"</span>
+    android:layout_height=<span class="str">"wrap_content"</span>
+    android:text=<span class="str">"Texto de la opción"</span> <span class="kw">/&gt;</span></code></pre>
+<pre><code><span class="kw">import</span> android.widget.CheckBox
+
+<span class="kw">val</span> cbOpcion = findViewById&lt;<span class="tp">CheckBox</span>&gt;(R.id.cbOpcion)
+
+btnCalcular.setOnClickListener {
+    <span class="kw">val</span> marcado = cbOpcion.isChecked   <span class="cm">// true o false</span>
+    <span class="kw">val</span> extra = <span class="kw">if</span> (marcado) 4.0 <span class="kw">else</span> 0.0
+}</code></pre>
+    <div class="tip"><strong>Léelo dentro del listener</strong>, igual que los EditText. Para desmarcar: <code>cbOpcion.isChecked = false</code>.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">◉</span> RadioGroup + RadioButton (elegir solo una)</h3>
+    <p>Los RadioButton van DENTRO de un RadioGroup: así solo se puede marcar uno. Prefijos: <code>rg</code> y <code>rb</code>.</p>
+<pre><code><span class="kw">&lt;RadioGroup</span>
+    android:id=<span class="str">"@+id/rgOpciones"</span>
+    android:layout_width=<span class="str">"match_parent"</span>
+    android:layout_height=<span class="str">"wrap_content"</span>
+    android:orientation=<span class="str">"horizontal"</span><span class="kw">&gt;</span>
+
+    <span class="kw">&lt;RadioButton</span>
+        android:id=<span class="str">"@+id/rbOpcion1"</span>
+        android:layout_width=<span class="str">"wrap_content"</span>
+        android:layout_height=<span class="str">"wrap_content"</span>
+        android:text=<span class="str">"Opción 1"</span> <span class="kw">/&gt;</span>
+
+    <span class="kw">&lt;RadioButton</span>
+        android:id=<span class="str">"@+id/rbOpcion2"</span>
+        android:layout_width=<span class="str">"wrap_content"</span>
+        android:layout_height=<span class="str">"wrap_content"</span>
+        android:text=<span class="str">"Opción 2"</span> <span class="kw">/&gt;</span>
+<span class="kw">&lt;/RadioGroup&gt;</span></code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">◉</span> RadioGroup en Kotlin</h3>
+    <p><code>checkedRadioButtonId</code> devuelve el id del marcado, o <code>-1</code> si no hay ninguno.</p>
+<pre><code><span class="kw">import</span> android.widget.RadioGroup
+
+<span class="kw">val</span> rgOpciones = findViewById&lt;<span class="tp">RadioGroup</span>&gt;(R.id.rgOpciones)
+
+btnCalcular.setOnClickListener {
+    <span class="kw">val</span> seleccion = rgOpciones.checkedRadioButtonId
+
+    <span class="kw">if</span> (seleccion == -1) {
+        tvResultado.text = <span class="str">"Elige una opción"</span>
+    } <span class="kw">else</span> {
+        <span class="kw">val</span> precio = <span class="kw">when</span> (seleccion) {
+            R.id.rbOpcion1 -> 1.80
+            R.id.rbOpcion2 -> 1.10
+            <span class="kw">else</span> -> 0.0
+        }
+        <span class="kw">val</span> nombre = <span class="kw">if</span> (seleccion == R.id.rbOpcion1) <span class="str">"Opción 1"</span> <span class="kw">else</span> <span class="str">"Opción 2"</span>
+        tvResultado.text = <span class="str">"$nombre: $precio €"</span>
+    }
+}</code></pre>
+    <div class="tip"><strong>Quitar selección:</strong> <code>rgOpciones.clearCheck()</code>. No necesitas hacer <code>findViewById</code> de cada RadioButton, basta con el grupo.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">id</span> Prefijos de ids (completo)</h3>
+    <table class="ref-table">
+      <tr><th>Prefijo</th><th>Vista</th><th>Import</th></tr>
+      <tr><td><code>et</code></td><td>EditText</td><td><code>android.widget.EditText</code></td></tr>
+      <tr><td><code>tv</code></td><td>TextView</td><td><code>android.widget.TextView</code></td></tr>
+      <tr><td><code>btn</code></td><td>Button</td><td><code>android.widget.Button</code></td></tr>
+      <tr><td><code>cb</code></td><td>CheckBox</td><td><code>android.widget.CheckBox</code></td></tr>
+      <tr><td><code>rg</code></td><td>RadioGroup</td><td><code>android.widget.RadioGroup</code></td></tr>
+      <tr><td><code>rb</code></td><td>RadioButton</td><td><code>android.widget.RadioButton</code></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════ ESTILOS ═══════ -->
+<div class="panel" id="estilos">
+  <div class="card">
+    <h3><span class="icon">1</span> Colores: res/values/colors.xml</h3>
+    <p>Dentro de <code>&lt;resources&gt;</code> (el archivo ya existe):</p>
+<pre><code><span class="kw">&lt;resources&gt;</span>
+    <span class="kw">&lt;color</span> name=<span class="str">"colorPrincipal"</span><span class="kw">&gt;</span>#19364F<span class="kw">&lt;/color&gt;</span>
+    <span class="kw">&lt;color</span> name=<span class="str">"colorSecundario"</span><span class="kw">&gt;</span>#008E9B<span class="kw">&lt;/color&gt;</span>
+    <span class="kw">&lt;color</span> name=<span class="str">"colorFondo"</span><span class="kw">&gt;</span>#F3F7FA<span class="kw">&lt;/color&gt;</span>
+<span class="kw">&lt;/resources&gt;</span></code></pre>
+    <p>Se usan como <code>@color/colorPrincipal</code> en XML y <code>R.color.colorPrincipal</code> en Kotlin.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">2</span> Estilos: res/values/styles.xml</h3>
+    <p>Este archivo lo creas tú (clic derecho en <code>values</code> → New → Values Resource File → <code>styles</code>). Un estilo agrupa atributos, como una clase CSS.</p>
+<pre><code><span class="cm">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="kw">&lt;resources&gt;</span>
+    <span class="kw">&lt;style</span> name=<span class="str">"CampoFormulario"</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:layout_width"</span><span class="kw">&gt;</span>match_parent<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:layout_height"</span><span class="kw">&gt;</span>wrap_content<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:textSize"</span><span class="kw">&gt;</span>16sp<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:padding"</span><span class="kw">&gt;</span>12dp<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:layout_marginBottom"</span><span class="kw">&gt;</span>8dp<span class="kw">&lt;/item&gt;</span>
+    <span class="kw">&lt;/style&gt;</span>
+
+    <span class="kw">&lt;style</span> name=<span class="str">"BotonPrincipal"</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:layout_width"</span><span class="kw">&gt;</span>match_parent<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:layout_height"</span><span class="kw">&gt;</span>wrap_content<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:textSize"</span><span class="kw">&gt;</span>16sp<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:textStyle"</span><span class="kw">&gt;</span>bold<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:layout_marginTop"</span><span class="kw">&gt;</span>8dp<span class="kw">&lt;/item&gt;</span>
+    <span class="kw">&lt;/style&gt;</span>
+
+    <span class="kw">&lt;style</span> name=<span class="str">"TextoResultado"</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:layout_width"</span><span class="kw">&gt;</span>match_parent<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:layout_height"</span><span class="kw">&gt;</span>wrap_content<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:textSize"</span><span class="kw">&gt;</span>18sp<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:padding"</span><span class="kw">&gt;</span>16dp<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:textColor"</span><span class="kw">&gt;</span>@color/colorPrincipal<span class="kw">&lt;/item&gt;</span>
+        <span class="kw">&lt;item</span> name=<span class="str">"android:background"</span><span class="kw">&gt;</span>@drawable/fondo_panel<span class="kw">&lt;/item&gt;</span>
+    <span class="kw">&lt;/style&gt;</span>
+<span class="kw">&lt;/resources&gt;</span></code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">3</span> Aplicar un estilo</h3>
+    <p>Se pone <code>style="@style/Nombre"</code> (sin <code>android:</code> delante). Cada vista sigue llevando SU id y lo que la hace única (hint, inputType, text).</p>
+<pre><code><span class="kw">&lt;EditText</span>
+    android:id=<span class="str">"@+id/etCampo1"</span>
+    style=<span class="str">"@style/CampoFormulario"</span>
+    android:hint=<span class="str">"Primer dato"</span>
+    android:inputType=<span class="str">"number"</span> <span class="kw">/&gt;</span>
+
+<span class="kw">&lt;Button</span>
+    android:id=<span class="str">"@+id/btnCalcular"</span>
+    style=<span class="str">"@style/BotonPrincipal"</span>
+    android:text=<span class="str">"Calcular"</span> <span class="kw">/&gt;</span>
+
+<span class="kw">&lt;TextView</span>
+    android:id=<span class="str">"@+id/tvResultado"</span>
+    style=<span class="str">"@style/TextoResultado"</span>
+    android:text=<span class="str">"Introduce los datos"</span> <span class="kw">/&gt;</span></code></pre>
+    <div class="tip"><strong>Si el estilo ya pone width y height</strong>, no hace falta repetirlos en la vista.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">4</span> Fondo redondeado: res/drawable/fondo_panel.xml</h3>
+    <p>Clic derecho en <code>drawable</code> → New → Drawable Resource File → nombre <code>fondo_panel</code>, raíz <code>shape</code>.</p>
+<pre><code><span class="kw">&lt;shape</span> xmlns:android=<span class="str">"http://schemas.android.com/apk/res/android"</span>
+    android:shape=<span class="str">"rectangle"</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;solid</span> android:color=<span class="str">"@color/colorFondo"</span> <span class="kw">/&gt;</span>       <span class="cm">&lt;!-- relleno --&gt;</span>
+    <span class="kw">&lt;corners</span> android:radius=<span class="str">"16dp"</span> <span class="kw">/&gt;</span>              <span class="cm">&lt;!-- esquinas --&gt;</span>
+    <span class="kw">&lt;stroke</span> android:width=<span class="str">"1dp"</span> android:color=<span class="str">"#CDDDE3"</span> <span class="kw">/&gt;</span> <span class="cm">&lt;!-- borde --&gt;</span>
+<span class="kw">&lt;/shape&gt;</span></code></pre>
+    <p>Se aplica con <code>android:background="@drawable/fondo_panel"</code> en un TextView o LinearLayout. Añade <code>android:padding</code> para que el texto no toque el borde.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">@</span> Resumen de referencias</h3>
+    <table class="ref-table">
+      <tr><th>En XML</th><th>En Kotlin</th><th>Archivo</th></tr>
+      <tr><td><code>@+id/nombre</code> (crear)</td><td><code>R.id.nombre</code></td><td>activity_main.xml</td></tr>
+      <tr><td><code>@color/nombre</code></td><td><code>R.color.nombre</code></td><td>colors.xml</td></tr>
+      <tr><td><code>@style/Nombre</code></td><td>—</td><td>styles.xml</td></tr>
+      <tr><td><code>@drawable/nombre</code></td><td><code>R.drawable.nombre</code></td><td>drawable/nombre.xml</td></tr>
+    </table>
+    <div class="tip"><strong>Recuerda:</strong> los estilos son solo aspecto. Las validaciones y cálculos siguen yendo en Kotlin.</div>
+  </div>
+</div>
+
+<!-- ═══════ VIEW BINDING ═══════ -->
+<div class="panel" id="binding">
+  <div class="card">
+    <h3><span class="icon">B</span> Qué es</h3>
+    <p>Permite usar las vistas del XML directamente desde Kotlin, <strong>sin <code>findViewById</code></strong>. Android crea una variable por cada vista que tenga <code>android:id</code>.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">1</span> Activarlo en Gradle</h3>
+    <p>En <code>app/build.gradle.kts</code> (el de <strong>Module :app</strong>), dentro de <code>android { }</code>:</p>
+<pre><code><span class="kw">android</span> {
+    <span class="cm">// ... lo que ya hay ...</span>
+
+    buildFeatures {
+        viewBinding = <span class="kw">true</span>
+    }
+}</code></pre>
+    <p>Después pulsa <strong>Sync Now</strong> (barra amarilla de arriba) y espera a que termine.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">2</span> El XML genera su clase Binding</h3>
+    <p>El nombre se saca del archivo del layout: pasa a PascalCase y se le añade <code>Binding</code>.</p>
+    <table class="ref-table">
+      <tr><th>Layout</th><th>Clase que se genera</th></tr>
+      <tr><td><code>activity_main.xml</code></td><td><code>ActivityMainBinding</code></td></tr>
+      <tr><td><code>activity_ticket.xml</code></td><td><code>ActivityTicketBinding</code></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">3</span> Preparar la Activity</h3>
+<pre><code><span class="kw">import</span> com.example.tupaquete.databinding.ActivityMainBinding
+
+<span class="kw">class</span> <span class="tp">MainActivity</span> : AppCompatActivity() {
+    <span class="kw">private lateinit var</span> binding: <span class="tp">ActivityMainBinding</span>
+
+    <span class="kw">override fun</span> onCreate(savedInstanceState: Bundle?) {
+        <span class="kw">super</span>.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)   <span class="cm">// sustituye a setContentView(R.layout.activity_main)</span>
+
+        <span class="cm">// aquí tu código</span>
+    }
+}</code></pre>
+    <table class="ref-table">
+      <tr><th>Pieza</th><th>Qué hace</th></tr>
+      <tr><td><code>lateinit var binding</code></td><td>Declara la variable ahora y le da valor después, en <code>onCreate</code></td></tr>
+      <tr><td><code>ActivityMainBinding.inflate(layoutInflater)</code></td><td>Crea las vistas del XML</td></tr>
+      <tr><td><code>setContentView(binding.root)</code></td><td>Muestra esa pantalla</td></tr>
+    </table>
+    <div class="tip"><strong>El import:</strong> cambia <code>com.example.tupaquete</code> por tu paquete (la línea <code>package</code> de arriba). Si sale en rojo, <code>Alt + Enter</code>.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">4</span> Usar las vistas: binding.idDelElemento</h3>
+    <p>Mismo nombre que el <code>android:id</code> del XML.</p>
+<pre><code>binding.btnCalcular.setOnClickListener {
+    <span class="kw">val</span> valor = binding.etCampo1.text.toString().toDoubleOrNull()
+    <span class="kw">val</span> marcado = binding.cbOpcion.isChecked
+    <span class="kw">val</span> seleccion = binding.rgOpciones.checkedRadioButtonId
+
+    binding.tvResultado.text = <span class="str">"Resultado: $valor"</span>
+}
+
+binding.btnLimpiar.setOnClickListener {
+    binding.etCampo1.text.clear()
+    binding.tvResultado.text = <span class="str">"Resultado"</span>
+}</code></pre>
+    <div class="tip"><strong>Ids con guion bajo</strong> pasan a camelCase: <code>@+id/et_campo_1</code> → <code>binding.etCampo1</code>.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⇄</span> findViewById vs View Binding</h3>
+<pre><code><span class="cm">// ── Con findViewById ──</span>
+setContentView(R.layout.activity_main)
+<span class="kw">val</span> etCampo1 = findViewById&lt;<span class="tp">EditText</span>&gt;(R.id.etCampo1)
+<span class="kw">val</span> tvResultado = findViewById&lt;<span class="tp">TextView</span>&gt;(R.id.tvResultado)
+tvResultado.text = etCampo1.text.toString()
+
+<span class="cm">// ── Con View Binding ──</span>
+binding = ActivityMainBinding.inflate(layoutInflater)
+setContentView(binding.root)
+binding.tvResultado.text = binding.etCampo1.text.toString()</code></pre>
+    <table class="ref-table">
+      <tr><th></th><th>findViewById</th><th>View Binding</th></tr>
+      <tr><td>Declarar cada vista</td><td>Sí, una línea por vista</td><td>No hace falta</td></tr>
+      <tr><td>Tipo equivocado (<code>&lt;EditText&gt;</code> en un TextView)</td><td>Compila y la app se cierra</td><td>Imposible: el tipo lo pone Android</td></tr>
+      <tr><td>Id que no existe</td><td>Falla al ejecutar</td><td>Sale en rojo al escribir</td></tr>
+      <tr><td>Imports de vistas (<code>EditText</code>, <code>Button</code>...)</td><td>Necesarios</td><td>No hacen falta</td></tr>
+    </table>
+    <div class="tip"><strong>No mezcles:</strong> usa una forma u otra en el mismo proyecto. Todo lo demás (validar, <code>when</code>, funciones...) es igual.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">S</span> Volver al texto de strings.xml</h3>
+    <p>Útil para que Limpiar restaure el texto inicial sin escribirlo dos veces.</p>
+    <table class="ref-table">
+      <tr><th>Dónde</th><th>Código</th></tr>
+      <tr><td><code>strings.xml</code></td><td><code>&lt;string name="texto_inicial"&gt;Resultado&lt;/string&gt;</code></td></tr>
+      <tr><td>XML de la vista</td><td><code>android:text="@string/texto_inicial"</code></td></tr>
+      <tr><td>Kotlin</td><td><code>binding.tvResultado.setText(R.string.texto_inicial)</code></td></tr>
+    </table>
+    <div class="tip"><strong>Ojo:</strong> con un texto de <code>strings.xml</code> se usa <code>setText(R.string...)</code>, no <code>.text = R.string...</code> (eso mostraría un número). Funciona igual sin binding: <code>tvResultado.setText(R.string.texto_inicial)</code>.</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Si algo sale en rojo</h3>
+    <ul>
+      <li>¿Está <code>viewBinding = true</code> en el <code>build.gradle.kts</code> de <strong>app</strong> y has hecho <strong>Sync Now</strong>?</li>
+      <li>¿Hay algún error en el XML? Si el XML no compila, no se genera el Binding.</li>
+      <li>¿El nombre de la clase coincide con el del layout? <code>activity_main</code> → <code>ActivityMainBinding</code>.</li>
+      <li>¿El import tiene tu paquete y termina en <code>.databinding.ActivityMainBinding</code>?</li>
+      <li>¿La vista tiene <code>android:id</code>? Sin id no aparece en <code>binding</code>.</li>
+      <li>Si sigue fallando: <strong>Build → Rebuild Project</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════ ERRORES COMUNES ═══════ -->
+<div class="panel" id="errores">
+  <div class="card">
+    <h3><span class="icon">⚠</span> import android.R</h3>
+    <p>Si importas <code>android.R</code>, sobreescribe la <code>R</code> de tu proyecto y nada de tu XML se encuentra.</p>
+    <p><strong>Solución:</strong> Borra la línea <code>import android.R</code>.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Comparar un nullable</h3>
+    <p>No puedes hacer <code>edadNum &lt; 18</code> si <code>edadNum</code> es <code>Int?</code>. Comprueba null primero.</p>
+<pre><code><span class="cm">// ❌ MAL</span>
+<span class="kw">if</span> (edadNum < 18) { ... }
+
+<span class="cm">// ✅ BIEN</span>
+<span class="kw">if</span> (edadNum == <span class="kw">null</span> || edadNum < 18) { ... }</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> .toString() en EditText</h3>
+    <p><code>miEditText.toString()</code> devuelve el objeto, no el texto que escribió el usuario.</p>
+<pre><code><span class="cm">// ❌ MAL</span>
+<span class="kw">val</span> texto = miEditText.toString()
+
+<span class="cm">// ✅ BIEN</span>
+<span class="kw">val</span> texto = miEditText<span class="str">.text.toString()</span></code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Leer el texto fuera del listener</h3>
+    <p>Si lees <code>.text.toString()</code> fuera del listener, lees el valor al crear la pantalla (vacío).</p>
+<pre><code><span class="cm">// ❌ MAL — lee vacío porque el usuario aún no ha escrito</span>
+<span class="kw">var</span> num = temperatura.text.toString().toDoubleOrNull()
+boton.setOnClickListener { ... }
+
+<span class="cm">// ✅ BIEN — lee dentro del listener, cuando el usuario ya escribió</span>
+boton.setOnClickListener {
+    <span class="kw">val</span> num = temperatura.text.toString().toDoubleOrNull()
+    ...
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> return 0.0 en vez del resultado</h3>
+    <p>Si calculas el resultado pero haces <code>return 0.0</code>, siempre devuelve cero.</p>
+<pre><code><span class="cm">// ❌ MAL</span>
+<span class="kw">fun</span> calcular(x: <span class="tp">Double</span>): <span class="tp">Double</span> {
+    <span class="kw">val</span> resultado = x * 2
+    <span class="kw">return</span> 0.0  <span class="cm">// ignora el cálculo</span>
+}
+
+<span class="cm">// ✅ BIEN</span>
+<span class="kw">fun</span> calcular(x: <span class="tp">Double</span>): <span class="tp">Double</span> {
+    <span class="kw">val</span> resultado = x * 2
+    <span class="kw">return</span> resultado
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Doble declaración XML</h3>
+    <p>Solo una línea <code>&lt;?xml ...?&gt;</code> por archivo. Si hay dos, da error.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Package no coincide</h3>
+    <p>La línea <code>package</code> en MainActivity.kt debe coincidir con la carpeta del archivo. Si copias de otro proyecto, cámbialo.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Comparar Double con Int usando ==</h3>
+    <p><code>==</code> no deja comparar <code>Double</code> con <code>Int</code>. Con <code>&lt;</code> y <code>&gt;</code> sí se puede mezclar.</p>
+<pre><code><span class="cm">// ❌ MAL (valor es Double)</span>
+<span class="kw">if</span> (valor == 0) { ... }
+valor.equals(0)          <span class="cm">// compila pero SIEMPRE da false</span>
+
+<span class="cm">// ✅ BIEN</span>
+<span class="kw">if</span> (valor == 0.0) { ... }
+<span class="kw">if</span> (valor < 0) { ... }    <span class="cm">// esto sí funciona</span></code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Condiciones en when (variable)</h3>
+    <p>Con argumento, cada rama se compara por igualdad. Para condiciones, quita el argumento.</p>
+<pre><code><span class="cm">// ❌ MAL</span>
+<span class="kw">val</span> estado = <span class="kw">when</span> (valor) {
+    valor < 0 -> <span class="str">"Negativo"</span>
+}
+
+<span class="cm">// ✅ BIEN</span>
+<span class="kw">val</span> estado = <span class="kw">when</span> {
+    valor < 0 -> <span class="str">"Negativo"</span>
+    <span class="kw">else</span> -> <span class="str">"No negativo"</span>
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Falta el else en un when asignado</h3>
+    <p>Si haces <code>val x = when { ... }</code> sin <code>else</code>, da error: <em>'when' expression must be exhaustive</em>.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> return solo dentro de un listener</h3>
+<pre><code><span class="cm">// ❌ MAL: 'return' is not allowed here</span>
+btnCalcular.setOnClickListener { <span class="kw">if</span> (numero == <span class="kw">null</span>) <span class="kw">return</span> }
+
+<span class="cm">// ✅ BIEN</span>
+btnCalcular.setOnClickListener { <span class="kw">if</span> (numero == <span class="kw">null</span>) <span class="kw">return@setOnClickListener</span> }</code></pre>
+    <p>Dentro de una <code>fun</code> local (como <code>calcular()</code>) el <code>return</code> normal sí vale.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> && y || mezclados sin paréntesis</h3>
+<pre><code><span class="cm">// ❌ MAL: se lee como (op == "/" && a == 0.0) || b == 0.0</span>
+<span class="kw">if</span> (op == <span class="str">"/"</span> && a == 0.0 || b == 0.0)
+
+<span class="cm">// ✅ BIEN: el divisor es el segundo número</span>
+<span class="kw">if</span> (op == <span class="str">"/"</span> && b == 0.0)</code></pre>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Contador que no avanza</h3>
+    <p>Si el <code>var contador = 0</code> está DENTRO del listener, se reinicia en cada clic. Ponlo fuera, en <code>onCreate</code>.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Restar antes de validar</h3>
+    <p>Valida TODO primero (nulls, rangos, que haya suficiente...). Solo cuando todo es correcto, calcula, resta del contador y muestra.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Usar un dato inválido de RadioGroup</h3>
+    <p>Comprueba <code>checkedRadioButtonId == -1</code> antes de calcular, o calcularás con una opción que no existe.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> ScrollView con varios hijos</h3>
+    <p>Error <em>ScrollView can host only one direct child</em>. Mete todas las vistas dentro de un único LinearLayout.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Falta el import de una vista nueva</h3>
+    <p>Si <code>CheckBox</code>, <code>RadioGroup</code> o <code>Color</code> salen en rojo, falta el import. En Android Studio: cursor encima y <code>Alt + Enter</code>.</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon">⚠</span> Estilo no encontrado</h3>
+    <p>Si <code>@style/Nombre</code> da error, revisa que <code>styles.xml</code> esté en <code>res/values/</code>, dentro de <code>&lt;resources&gt;</code>, y que el nombre coincida exactamente (mayúsculas incluidas).</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body></html>
