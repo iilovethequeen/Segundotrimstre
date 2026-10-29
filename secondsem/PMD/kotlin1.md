@@ -1134,3 +1134,164 @@ btnLimpiar.setOnClickListener { plazasDisponibles = 20; ... }
 - "ÚNICAMENTE de la energía" → discount only on one part.
 
 Good luck! 🍀
+
+import android.os.Bundle
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    // Declaración de vistas según los IDs de activity_main.xml
+    private lateinit var etNombre: EditText
+    private lateinit var etCantidad: EditText
+    private lateinit var rgPosicion: RadioGroup
+    private lateinit var cbBrillo: CheckBox
+    private lateinit var btnPrepararLimpiar: Button
+    private lateinit var tvResumen: TextView
+
+    // Stock inicial de los frascos (18 frascos disponibles en total al abrir la app)
+    private var stockCalabaza = 6
+    private var stockFantasmas = 6
+    private var stockVampiros = 6
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Obtención de controles mediante findViewById[span_2](start_span)[span_2](end_span)
+        etNombre = findViewById(R.id.etNombre)
+        etCantidad = findViewById(R.id.etCantidad)
+        rgPosicion = rgPosicion ?: findViewById(R.id.rgPosicion) // O el ID correspondiente del RadioGroup
+        cbBrillo = findViewById(R.id.cbBrillo)
+        btnPrepararLimpiar = findViewById(R.id.btnPrepararLimpiar)
+        tvResumen = findViewById(R.id.tvResumen)
+
+        // Mostrar stock inicial en el TextView de resumen (o estado inicial)
+        actualizarTextoResumen("Stock disponible -> Calabaza: $stockCalabaza, Fantasma: $stockFantasmas, Vampiro: $stockVampiros")
+
+        btnPrepararLimpiar.setOnClickListener {
+            // Evaluamos si el botón actúa como "Preparar pedido" o "Limpiar formulario"
+            // Por simplicidad del ejemplo, verificamos si hay texto o según la lógica del botón:
+            if (btnPrepararLimpiar.text.toString().contains("Limpiar", ignoreCase = true)) {
+                limpiarFormulario()
+            } else {
+                procesarPedido()
+            }
+        }
+    }
+
+    // --- FUNCIONES DE CÁLCULO (Reciben parámetros y devuelven resultados, sin leer directamente widgets) ---
+
+    // 1. Calcula el coste base según la porción elegida y la cantidad
+    private fun calcularCosteBase(tipoPosicion: Int, cantidad: Int): Double {
+        val precioUnitario = when (tipoPosicion) {
+            R.id.rbCalabaza -> 1.50
+            R.id.rbFantasma -> 2.00
+            R.id.rbVampiro -> 2.50
+            else -> 0.0
+        }
+        return precioUnitario * cantidad
+    }
+
+    // 2. Calcula el coste extra por brillo mágico (1.50 € por frasco si está marcado)
+    private fun calcularExtraBrillo(tieneBrillo: Boolean, cantidad: Int): Double {
+        return if (tieneBrillo) 1.50 * cantidad else 0.0
+    }
+
+    // 3. Calcula el descuento aplicable (10% únicamente sobre el coste base si se piden 4 o más frascos)
+    private fun calcularDescuento(cantidad: Int, costeBase: Double): Double {
+        return if (cantidad >= 4) costeBase * 0.10 else 0.0
+    }
+
+    // --- LÓGICA DE PROCESAMIENTO DEL PEDIDO ---
+
+    private fun procesarPedido() {
+        val nombre = etNombre.text.toString().trim()
+        val cantidadStr = etCantidad.text.toString()
+
+        // 1. Validaciones
+        if (nombre.isEmpty()) {
+            etNombre.error = getString(R.string.error_nombre_vacio) // Usando R.string tal como pide
+            return
+        }
+
+        if (cantidadStr.isEmpty()) {
+            etCantidad.error = getString(R.string.error_cantidad_vacia)
+            return
+        }
+
+        val cantidad = cantidadStr.toIntOrNull()
+        if (cantidad == null || cantidad !in 1..6) {
+            etCantidad.error = getString(R.string.error_cantidad_invalida)
+            return
+        }
+
+        val idSeleccionado = rgPosicion.checkedRadioButtonId
+        if (idSeleccionado == -1) {
+            Toast.makeText(this, getString(R.string.error_porcion_no_seleccionada), Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val tieneBrillo = cbBrillo.isChecked
+
+        // 4. Control de Stock
+        val stockActual = when (idSeleccionado) {
+            R.id.rbCalabaza -> stockCalabaza
+            R.id.rbFantasma -> stockFantasmas
+            R.id.rbVampiro -> stockVampiros
+            else -> 0
+        }
+
+        if (cantidad > stockActual) {
+            tvResumen.text = getString(R.string.error_stock_insuficiente)
+            return
+        }
+
+        // Descontar del stock correspondiente
+        when (idSeleccionado) {
+            R.id.rbCalabaza -> stockCalabaza -= cantidad
+            R.id.rbFantasma -> stockFantasmas -= cantidad
+            R.id.rbVampiro -> stockVampiros -= cantidad
+        }
+
+        // 2 & 3. Realizar cálculos llamando a las funciones independientes
+        val costeBase = calcularCosteBase(idSeleccionado, cantidad)
+        val extraBrillo = calcularExtraBrillo(tieneBrillo, cantidad)
+        val descuento = calcularDescuento(cantidad, costeBase)
+        val totalAPagar = (costeBase + extraBrillo) - descuento
+
+        // 5. Mostrar Resumen detallado con dos decimales
+        val nombrePorcion = when (idSeleccionado) {
+            R.id.rbCalabaza -> "Calabaza"
+            R.id.rbFantasma -> "Fantasma"
+            R.id.rbVampiro -> "Vampiro"
+            else -> ""
+        }
+
+        val resumenTexto = String.format(
+            "Cliente: %s\nPorción: %s, Cantidad: %d\nCoste base: %.2f €\nExtra por brillo: %.2f €\nDescuento: %.2f €\nTotal a pagar: %.2f €\nFrascos restantes -> Calabaza: %d, Fantasma: %d, Vampiro: %d",
+            nombre, nombrePorcion, cantidad, costeBase, extraBrillo, descuento, totalAPagar,
+            stockCalabaza, stockFantasmas, stockVampiros
+        )
+
+        tvResumen.text = resumenTexto
+
+        // Cambiar funcionalidad del botón a "Limpiar formulario" tras realizar el pedido con éxito
+        btnPrepararLimpiar.text = getString(R.string.btn_limpiar)
+    }
+
+    // 6. Limpiar campos (no recupera los frascos gastados, solo vacía campos y restaura el estado del resumen)
+    private fun limpiarFormulario() {
+        etNombre.text.clear()
+        etCantidad.text.clear()
+        rgPosicion.clearCheck()
+        cbBrillo.isChecked = false
+
+        actualizarTextoResumen("Stock disponible -> Calabaza: $stockCalabaza, Fantasma: $stockFantasmas, Vampiro: $stockVampiros")
+        btnPrepararLimpiar.text = getString(R.string.btn_preparar)
+    }
+
+    private fun actualizarTextoResumen(texto: String) {
+        tvResumen.text = texto
+    }
+}
