@@ -47,34 +47,29 @@ class MainActivity : AppCompatActivity() {
 
 ### XML skeleton (copy-paste base)
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+```xml<resources>
+    <string name="app_name">El caldero de Halloween</string>
+    
+    <!-- Etiquetas y pistas -->
+    <string name="hint_nombre">Nombre del cliente</string>
+    <string name="hint_cantidad">Cantidad de frascos (1 a 6)</string>
+    <string name="label_calabaza">Calabaza (1,50 €)</string>
+    <string name="label_fantasma">Fantasma (2,00 €)</string>
+    <string name="label_vampiro">Vampiro (2,50 €)</string>
+    <string name="label_brillo">Añadir brillo mágico (+1,50 € por frasco)</string>
+    
+    <!-- Botones -->
+    <string name="btn_preparar">Preparar un pedido</string>
+    <string name="btn_limpiar">Limpiar formulario</string>
+    
+    <!-- Mensajes de error -->
+    <string name="error_nombre_vacio">El nombre no puede estar vacío</string>
+    <string name="error_cantidad_vacia">La cantidad no puede estar vacía</string>
+    <string name="error_cantidad_invalida">La cantidad debe ser un número entero de 1 a 6</string>
+    <string name="error_porcion_no_seleccionada">Debes seleccionar una poción</string>
+    <string name="error_stock_insuficiente">¡Error de validación: el stock no cambia. No hay suficientes frascos!</string>
+</resources>
 
-    <EditText
-        android:id="@+id/etDato"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Dato"
-        android:inputType="number" />
-
-    <Button
-        android:id="@+id/btnOk"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Aceptar" />
-
-    <TextView
-        android:id="@+id/tvResultado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Resultado"
-        android:textSize="18sp" />
-</LinearLayout>
 ```
 
 ---
@@ -124,18 +119,88 @@ class MainActivity : AppCompatActivity() {
 
 ### XML attributes
 
-| Attribute | Meaning |
-|---|---|
-| `android:id="@+id/nombre"` | Creates the id (in Kotlin: `R.id.nombre`) |
-| `layout_width/height` | `match_parent` (fill) / `wrap_content` (fit content) |
-| `android:hint` | Grey placeholder text in EditText |
-| `android:text` | Fixed text |
-| `android:inputType` | `text`, `number` (integers), `numberDecimal` (decimals), `numberSigned` (allows `-`), `numberDecimal\|numberSigned` (both) |
-| `android:orientation` | `vertical` / `horizontal` |
-| `android:padding` / `layout_margin...` | Space inside / outside a view |
-| `android:textSize="16sp"` | Letter size (sp for text, dp for the rest) |
-| `style="@style/Nombre"` | Apply a reusable style |
-| `android:background="@drawable/fondo_panel"` | Rounded background |
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Campo de Nombre -->
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nombre"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Campo de Cantidad -->
+        <EditText
+            android:id="@+id/etCantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_cantidad"
+            android:inputType="number"
+            android:layout_marginBottom="12dp" />
+
+        <!-- RadioGroup para las pociones -->
+        <RadioGroup
+            android:id="@+id/rgPosicion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <RadioButton
+                android:id="@+id/rbCalabaza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_calabaza" />
+
+            <RadioButton
+                android:id="@+id/rbFantasma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_fantasma" />
+
+            <RadioButton
+                android:id="@+id/rbVampiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_vampiro" />
+        </RadioGroup>
+
+        <!-- CheckBox para el brillo mágico -->
+        <CheckBox
+            android:id="@+id/cbBrillo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_brillo"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botón de acción -->
+        <Button
+            android:id="@+id/btnPrepararLimpiar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_preparar"
+            android:layout_marginBottom="16dp" />
+
+        <!-- TextView para el resumen -->
+        <TextView
+            android:id="@+id/tvResumen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>
+
 
 ### Typical errors to avoid
 - `findViewById` **before** `setContentView` → crash.
